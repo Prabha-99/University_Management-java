@@ -1,9 +1,10 @@
 package build;
 
-import java.awt.HeadlessException;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class userManagement extends javax.swing.JFrame {
 
@@ -43,9 +44,9 @@ public class userManagement extends javax.swing.JFrame {
         resetButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
 
         bluePanel.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -89,6 +90,7 @@ public class userManagement extends javax.swing.JFrame {
         newUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         newUserButton.setForeground(new java.awt.Color(204, 204, 204));
         newUserButton.setText("New");
+        newUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         newUserButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 newUserButtonMouseClicked(evt);
@@ -99,16 +101,19 @@ public class userManagement extends javax.swing.JFrame {
         editUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
         editUserButton.setText("Edit");
+        editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         deleteUserButton.setBackground(new java.awt.Color(0, 51, 102));
         deleteUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         deleteUserButton.setForeground(new java.awt.Color(204, 204, 204));
         deleteUserButton.setText("Delete");
+        deleteUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         resetButton.setBackground(new java.awt.Color(0, 51, 102));
         resetButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         resetButton.setForeground(new java.awt.Color(204, 204, 204));
         resetButton.setText("Reset");
+        resetButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setBorder(new javax.swing.border.MatteBorder(null));
@@ -128,6 +133,19 @@ public class userManagement extends javax.swing.JFrame {
         ));
         jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
+
+        closeButton.setBackground(new java.awt.Color(0, 51, 102));
+        closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton.setText("X");
+        closeButton.setBorderPainted(false);
+        closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButton.setFocusPainted(false);
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout whitePanelLayout = new javax.swing.GroupLayout(whitePanel);
         whitePanel.setLayout(whitePanelLayout);
@@ -179,6 +197,9 @@ public class userManagement extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, passwordField});
@@ -186,7 +207,8 @@ public class userManagement extends javax.swing.JFrame {
         whitePanelLayout.setVerticalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(whitePanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addComponent(closeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usermanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +280,7 @@ public class userManagement extends javax.swing.JFrame {
             .addGroup(bluePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(whitePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,17 +295,56 @@ public class userManagement extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void newUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUserButtonMouseClicked
-        try {
+
             //Adduser Fucntion
             
-            Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis?useSSL=false","root","")){
-//                if(conn!=null){    //Checking the connection
-//                    System.out.println("Connected");
-//                }
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis","root","")){
+                    if(conn!=null){    //Checking the connection
+                        System.out.println("Connected");
+                    }
+                    
+                    PreparedStatement add= conn.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?,?,?,?)");  // Database Inserting Query
+                                     
+                    add.setString(1,userIDField.getText());
+                    add.setString(2,nameField.getText());
+                    add.setString(3,addressField.getText());
+                    add.setString(4,dobField.getText());
+                    add.setString(5,genderField.getText());
+                    add.setString(6,mobileField.getText());
+                    add.setString(7,emailField.getText());
+                    add.setString(8,passwordField.getText());
+                    
+                    int rwo=add.executeUpdate();// Executing the Insert Query
+                    JOptionPane.showMessageDialog(this,"New User Added Successfully..."); //Success message
+                    
+                    
+                    
+                    
+                    
+             
+//                    String userid=userIDField.getText();
+//                    String name=nameField.getText();
+//                    String address=addressField.getText();
+//                    String dob=dobField.getText();
+//                    String gender=genderField.getText();
+//                    String mobile=mobileField.getText();
+//                    String email=emailField.getText();
+//                    String password=passwordField.getText();
+//                    Statement stm=conn.createStatement();
+//
+//                    String sql="SELECT * FROM users WHERE "
+//                            + "userID='"+userid+"' && name='"+name+"' && address='"+address+"' && dob='"+dob+"' && gender='"+gender+"' && mobile='"+mobile+"' && email='"+email+"' && password='"+password+"'";
+//
+//                    ResultSet result=stm.executeQuery(sql);
+//
+//                    if(result.next()){
+//
+//                    }
+                
 
 
 
@@ -292,13 +353,15 @@ public class userManagement extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(userManagement.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(userManagement.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
+        
                 
             
     }//GEN-LAST:event_newUserButtonMouseClicked
+
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
+        setVisible(false);
+        new adminDashboard().setVisible(true);
+    }//GEN-LAST:event_closeButtonMouseClicked
 
     
     public static void main(String args[]) {
@@ -326,17 +389,18 @@ public class userManagement extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new userManagement().setVisible(true);
-//            }
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new userManagement().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JPanel bluePanel;
+    private javax.swing.JButton closeButton;
     private javax.swing.JButton deleteUserButton;
     private javax.swing.JTextField dobField;
     private javax.swing.JLabel dobLabel;

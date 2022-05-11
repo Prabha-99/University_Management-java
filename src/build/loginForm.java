@@ -2,10 +2,7 @@ package build;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Anonymous
- */
+
 public class loginForm extends javax.swing.JFrame {
 
     public loginForm() {
@@ -47,6 +44,7 @@ public class loginForm extends javax.swing.JFrame {
 
         loginButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         loginButton.setText("LOGIN");
+        loginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -113,7 +111,8 @@ public class loginForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(562, 397));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -129,39 +128,45 @@ public class loginForm extends javax.swing.JFrame {
                 String password=passwordField.getText() ;
                 Statement stm=conn.createStatement();
                 //Mysql Query
-                String sql="SELECT * FROM users WHERE Email='"+username+"' OR userID='"+username+"' AND Password='"+password+"'";
-                String sqlStudent="SELECT * FROM users WHERE userID='"+username+"' LIKE 'S%'";
-                String sqlLecturer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'L%'";
-                String sqlTecOfficer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'T%'";
+                String sql="SELECT * FROM users WHERE Email='"+username+"' || userID='"+username+"' && Password='"+password+"' || Password='"+password+"'";
+//                String sqlStudent="SELECT * FROM users WHERE userID='"+username+"' LIKE 'S%'";
+//                String sqlLecturer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'L%'";
+//                String sqlTecOfficer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'T%'";
                 
            
                 ResultSet result=stm.executeQuery(sql);
-                ResultSet result2=stm.executeQuery(sqlStudent);
-                ResultSet result3=stm.executeQuery(sqlLecturer);
-                ResultSet result4=stm.executeQuery(sqlTecOfficer);
+//                ResultSet result2=stm.executeQuery(sqlStudent);
+//                ResultSet result3=stm.executeQuery(sqlLecturer);
+//                ResultSet result4=stm.executeQuery(sqlTecOfficer);
                 
                 //if Username and Password matches close the login and open the dashnoard
                 if (result.next()) {
-                    if(result2.next()){
-                        dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
-                        dash.show();
-                    }else if(result3.next()){
-                        dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
-                        dash.show();
-                    }else if(result4.next()){
-                        dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
-                        dash.show();
-                    }else {
-                        dispose(); // Closing the Login
-                        adminDashboard dash=new adminDashboard();
-                        dash.show();
-                    }
+                       dispose(); // Closing the Login
+                       adminDashboard dash=new adminDashboard();
+                       dash.show();
+                       mainInterface main=new mainInterface();
+                       main.dispose();                             //!!!!!!!!!!!!!Not Working!!!!!!!!!!!
+                    
+//                    if(result2.next()){
+//                        dispose(); // Closing the Login
+//                        otherDashboard dash=new otherDashboard();
+//                        dash.show();
+//                    }else if(result3.next()){
+//                        dispose(); // Closing the Login
+//                        otherDashboard dash=new otherDashboard();
+//                        dash.show();
+//                    }else if(result4.next()){
+//                        dispose(); // Closing the Login
+//                        otherDashboard dash=new otherDashboard();
+//                        dash.show();
+//                    }else {
+//                        dispose(); // Closing the Login
+//                        adminDashboard dash=new adminDashboard();
+//                        dash.show();
+//                    }
                     
                 } else {
-                    JOptionPane.showMessageDialog(this,"Username or Password is Wrong");//Wrong Creditionals Message Box
+                    JOptionPane.showMessageDialog(this,"Invalid Username or Password.!!!");//Wrong Creditionals Message Box
                     nameField.setText("");
                     passwordField.setText("");
                 }
