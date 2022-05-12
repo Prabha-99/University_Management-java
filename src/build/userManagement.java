@@ -301,7 +301,9 @@ public class userManagement extends javax.swing.JFrame {
     private void newUserButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUserButtonMouseClicked
 
             //Adduser Fucntion
-            
+            if(userIDField.getText().isEmpty() || nameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getText().isEmpty() || genderField.getText().isEmpty() || mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
                 try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
@@ -355,7 +357,7 @@ public class userManagement extends javax.swing.JFrame {
             }
         
                 
-            
+       }   
     }//GEN-LAST:event_newUserButtonMouseClicked
 
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
