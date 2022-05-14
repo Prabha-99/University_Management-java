@@ -43,10 +43,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                  <Component id="whitePanel" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                  <Component id="whitePanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -55,7 +55,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="whitePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -66,143 +66,157 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                              <Component id="usermanagementHeading" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="namelabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <Component id="addressLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <Component id="dobLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <Component id="userIDLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="userIDField" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="dobField" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="addressField" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="nameField" min="-2" pref="241" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="passwordLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="mobileLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="genderLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="emailLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="genderField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="emailField" linkSize="5" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="mobileField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="passwordField" linkSize="5" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="newUserButton" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="editUserButton" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="deleteUserButton" min="-2" pref="92" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="resetButton" min="-2" pref="92" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="979" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="closeButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fnamelabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="addressLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="dobLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="userIDLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="lnameLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="userIDField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="dobField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="addressField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="fnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="lnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="mobileLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="genderLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="emailLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="genderField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                  <Component id="emailField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                  <Component id="mobileField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="passwordLabel" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="passwordField" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="levelLabel" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="levelField" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="studentsTable" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
+                                  <Component id="studentmanagementHeading" alignment="0" min="-2" pref="917" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                              <Component id="newUserButton" min="-2" pref="92" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="editUserButton" min="-2" pref="92" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="deleteUserButton" min="-2" pref="92" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="resetUserButton" min="-2" pref="92" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="usermanagementHeading" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                      <Component id="closeButton" min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="studentmanagementHeading" min="-2" pref="58" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="userIDLabel" linkSize="1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="userIDField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="userIDLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="userIDField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="namelabel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="nameField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="fnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="fnamelabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="addressLabel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <Component id="addressField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="emailField" linkSize="4" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="emailLabel1" linkSize="4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lnameLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="lnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="dobLabel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="dobField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="passwordField" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="addressField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="addressLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="dobField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="dobLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="genderLabel" linkSize="2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="genderField" linkSize="2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Component id="genderLabel" min="-2" pref="26" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="genderField" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="mobileLabel" linkSize="3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="mobileField" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="emailField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="emailLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="passwordLabel" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="mobileLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="mobileField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="passwordField" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="passwordLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="levelLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="levelField" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="deleteUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="editUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="resetButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="deleteUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="resetUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="newUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="174" max="-2" attributes="0"/>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="studentsTable" pref="136" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="usermanagementHeading">
+            <Component class="javax.swing.JLabel" name="studentmanagementHeading">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="36" style="1"/>
@@ -210,7 +224,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="33" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manage Users_________________________"/>
+                <Property name="text" type="java.lang.String" value="Manage Students_________________________"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="userIDLabel">
@@ -224,7 +238,9 @@
                 <Property name="text" type="java.lang.String" value="userID :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="namelabel">
+            <Component class="javax.swing.JTextField" name="userIDField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="fnamelabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -232,8 +248,23 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="33" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Name :"/>
+                <Property name="text" type="java.lang.String" value="First Name :"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fnameField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lnameLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Fax" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Last Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="lnameField">
             </Component>
             <Component class="javax.swing.JLabel" name="addressLabel">
               <Properties>
@@ -246,6 +277,8 @@
                 <Property name="text" type="java.lang.String" value="Address :"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="addressField">
+            </Component>
             <Component class="javax.swing.JLabel" name="dobLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -256,6 +289,8 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="DOB :"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="dobField">
             </Component>
             <Component class="javax.swing.JLabel" name="genderLabel">
               <Properties>
@@ -268,6 +303,21 @@
                 <Property name="text" type="java.lang.String" value="Gender :"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="genderField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="emailLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Fax" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Email :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="emailField">
+            </Component>
             <Component class="javax.swing.JLabel" name="mobileLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -279,16 +329,7 @@
                 <Property name="text" type="java.lang.String" value="Mobile :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="emailLabel1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Fax" size="14" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="33" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Email :"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="mobileField">
             </Component>
             <Component class="javax.swing.JLabel" name="passwordLabel">
               <Properties>
@@ -301,21 +342,10 @@
                 <Property name="text" type="java.lang.String" value="Password :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="userIDField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="nameField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="addressField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="dobField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="genderField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="mobileField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="emailField">
-            </Component>
             <Component class="javax.swing.JPasswordField" name="passwordField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="newUserButton">
               <Properties>
@@ -333,9 +363,6 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="newUserButtonMouseClicked"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editUserButton">
               <Properties>
@@ -371,7 +398,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="resetButton">
+            <Component class="javax.swing.JButton" name="resetUserButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="33" red="0" type="rgb"/>
@@ -388,7 +415,42 @@
                 </Property>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+            <Component class="javax.swing.JButton" name="closeButton">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Fax" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="X"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="focusPainted" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeButtonMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="levelLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Fax" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Level :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="levelField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="levelFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="studentsTable">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -397,31 +459,32 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="jTable1">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                        <MatteColorBorder/>
-                      </Border>
-                    </Property>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Lucida Fax" size="12" style="1"/>
-                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="6">
+                      <Table columnCount="10" rowCount="5">
                         <Column editable="true" title="UserID" type="java.lang.Object"/>
-                        <Column editable="true" title="Name" type="java.lang.Object"/>
+                        <Column editable="true" title="Fname" type="java.lang.Object"/>
+                        <Column editable="true" title="Lname" type="java.lang.Object"/>
                         <Column editable="true" title="Address" type="java.lang.Object"/>
                         <Column editable="true" title="DOB" type="java.lang.Object"/>
                         <Column editable="true" title="Gender" type="java.lang.Object"/>
                         <Column editable="true" title="Mobile" type="java.lang.Object"/>
                         <Column editable="true" title="Email" type="java.lang.Object"/>
                         <Column editable="true" title="Password" type="java.lang.Object"/>
+                        <Column editable="true" title="Level" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -472,28 +535,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="closeButton">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="33" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Fax" size="14" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="X"/>
-                <Property name="borderPainted" type="boolean" value="false"/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
-                </Property>
-                <Property name="focusPainted" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeButtonMouseClicked"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

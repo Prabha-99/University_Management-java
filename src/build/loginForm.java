@@ -117,7 +117,10 @@ public class loginForm extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         //Login logic
-    
+        if(nameField.getText().isEmpty() || passwordField.getText().isEmpty()){ //Checking whether the Login Fields Empty of Not
+            JOptionPane.showMessageDialog(this,"Enter Credentials to Login.!!!");
+        }else{
+        
         try{
             Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
             try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis?useSSL=false","root","")) {
@@ -129,43 +132,35 @@ public class loginForm extends javax.swing.JFrame {
                 Statement stm=conn.createStatement();
                 //Mysql Query
                 String sql="SELECT * FROM users WHERE Email='"+username+"' || userID='"+username+"' && Password='"+password+"' || Password='"+password+"'";
-//                String sqlStudent="SELECT * FROM users WHERE userID='"+username+"' LIKE 'S%'";
-//                String sqlLecturer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'L%'";
-//                String sqlTecOfficer="SELECT * FROM users WHERE userID='"+username+"' LIKE 'T%'";
-                
-           
+                          
                 ResultSet result=stm.executeQuery(sql);
-//                ResultSet result2=stm.executeQuery(sqlStudent);
-//                ResultSet result3=stm.executeQuery(sqlLecturer);
-//                ResultSet result4=stm.executeQuery(sqlTecOfficer);
-                
-                //if Username and Password matches close the login and open the dashnoard
+
+                              
                 if (result.next()) {
+                    if(nameField.getText().startsWith("A")){
+                       //if Username and Password matches close the login and open the dashnoard
                        dispose(); // Closing the Login
                        adminDashboard dash=new adminDashboard();
                        dash.show();
-                       mainInterface main=new mainInterface();
-                       main.dispose();                             //!!!!!!!!!!!!!Not Working!!!!!!!!!!!
-                    
-//                    if(result2.next()){
-//                        dispose(); // Closing the Login
-//                        otherDashboard dash=new otherDashboard();
-//                        dash.show();
-//                    }else if(result3.next()){
-//                        dispose(); // Closing the Login
-//                        otherDashboard dash=new otherDashboard();
-//                        dash.show();
-//                    }else if(result4.next()){
-//                        dispose(); // Closing the Login
-//                        otherDashboard dash=new otherDashboard();
-//                        dash.show();
-//                    }else {
-//                        dispose(); // Closing the Login
-//                        adminDashboard dash=new adminDashboard();
-//                        dash.show();
-//                    }
-                    
-                } else {
+                    } else if(nameField.getText().startsWith("L")) {
+                       dispose(); // Closing the Login
+                       otherDashboard dash=new otherDashboard();
+                       dash.show();
+                    }else if(nameField.getText().startsWith("S")) {
+                       dispose(); // Closing the Login
+                       otherDashboard dash=new otherDashboard();
+                       dash.show();
+                    }else if(nameField.getText().startsWith("TO")){
+                       dispose(); // Closing the Login
+                       otherDashboard dash=new otherDashboard();
+                       dash.show();
+                    }else{
+                        JOptionPane.showMessageDialog(this,"Unauthorized User...!!!");
+                    }
+//                       mainInterface main=new mainInterface();
+//                       main.dispose();                             //!!!!!!!!!!!!!Not Working!!!!!!!!!!!
+                                        
+               } else {
                     JOptionPane.showMessageDialog(this,"Invalid Username or Password.!!!");//Wrong Creditionals Message Box
                     nameField.setText("");
                     passwordField.setText("");
@@ -178,6 +173,8 @@ public class loginForm extends javax.swing.JFrame {
         }catch(HeadlessException | ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
             }
+        
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     
