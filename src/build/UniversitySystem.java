@@ -1,8 +1,10 @@
 
 package build;
 
+import com.sun.jdi.connect.spi.Connection;
 
-public class UniversitySystem {
+
+public class UniversitySystem extends DBconnect{
 
     
     public static void main(String[] args) {
@@ -10,6 +12,10 @@ public class UniversitySystem {
         //mainInterface.java as the first interface to open
         mainInterface main=new mainInterface();
         main.show();
+        
+        DBconnect obj=new DBconnect();
+        
+        obj.connection();
     }
     
 }

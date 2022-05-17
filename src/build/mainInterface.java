@@ -23,28 +23,22 @@ public class mainInterface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
         facultyHeading = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
         welcomeNote = new javax.swing.JLabel();
         welcomeNote2 = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         welcomeNote3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
         background.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         background.setForeground(new java.awt.Color(204, 204, 204));
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        background.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Faculty.png")); // NOI18N
 
         facultyHeading.setFont(new java.awt.Font("Lucida Fax", 1, 52)); // NOI18N
         facultyHeading.setForeground(new java.awt.Color(204, 204, 204));
         facultyHeading.setText("Faculty of Technology");
-
-        logo.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\logo.png")); // NOI18N
-        logo.setText("jLabel1");
 
         welcomeNote.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         welcomeNote.setForeground(new java.awt.Color(204, 204, 204));
@@ -54,7 +48,6 @@ public class mainInterface extends javax.swing.JFrame {
         welcomeNote2.setForeground(new java.awt.Color(204, 204, 204));
         welcomeNote2.setText("Management Information System");
 
-        startButton.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\next-page-icon-22.png")); // NOI18N
         startButton.setBorder(null);
         startButton.setBorderPainted(false);
         startButton.setContentAreaFilled(false);
@@ -76,8 +69,6 @@ public class mainInterface extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
                 .addComponent(facultyHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(331, 331, 331))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -100,9 +91,7 @@ public class mainInterface extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logo)
-                    .addComponent(facultyHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(facultyHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(108, 108, 108)
@@ -189,7 +178,6 @@ public class mainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JLabel facultyHeading;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel logo;
     private javax.swing.JButton startButton;
     private javax.swing.JLabel welcomeNote;
     private javax.swing.JLabel welcomeNote2;

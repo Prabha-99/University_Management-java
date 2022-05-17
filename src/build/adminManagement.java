@@ -123,7 +123,6 @@ public class adminManagement extends javax.swing.JFrame {
         resetButton.setText("Reset");
         resetButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        adminsTable.setBackground(new java.awt.Color(255, 255, 255));
         adminsTable.setBorder(new javax.swing.border.MatteBorder(null));
         adminsTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         adminsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -139,7 +138,6 @@ public class adminManagement extends javax.swing.JFrame {
                 "UserID", "Name", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
             }
         ));
-        adminsTable.setRowHeight(20);
         jScrollPane1.setViewportView(adminsTable);
 
         closeButton.setBackground(new java.awt.Color(0, 51, 102));
@@ -163,9 +161,6 @@ public class adminManagement extends javax.swing.JFrame {
         whitePanel.setLayout(whitePanelLayout);
         whitePanelLayout.setHorizontalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(closeButton))
             .addGroup(whitePanelLayout.createSequentialGroup()
                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(whitePanelLayout.createSequentialGroup()
@@ -218,6 +213,9 @@ public class adminManagement extends javax.swing.JFrame {
                                 .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 133, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, passwordField});
@@ -225,7 +223,7 @@ public class adminManagement extends javax.swing.JFrame {
         whitePanelLayout.setVerticalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(whitePanelLayout.createSequentialGroup()
-                .addComponent(closeButton)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(adminmanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)

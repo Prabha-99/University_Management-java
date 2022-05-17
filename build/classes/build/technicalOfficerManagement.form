@@ -23,12 +23,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bluePanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="bluePanel" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bluePanel" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="bluePanel" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -44,7 +47,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="105" max="32767" attributes="0"/>
+                  <EmptySpace pref="159" max="32767" attributes="0"/>
                   <Component id="whitePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
@@ -55,7 +58,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="whitePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -84,12 +87,12 @@
                                           <Component id="lnameLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="userIDField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="dobField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="addressField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="fnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="lnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="dobField" alignment="0" pref="241" max="32767" attributes="0"/>
+                                          <Component id="addressField" alignment="0" pref="241" max="32767" attributes="0"/>
+                                          <Component id="fnameField" alignment="0" pref="241" max="32767" attributes="0"/>
+                                          <Component id="lnameField" alignment="0" pref="241" max="32767" attributes="0"/>
+                                          <Component id="userIDField" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -169,9 +172,9 @@
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="userIDLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="userIDField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="userIDLabel" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="userIDField" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -497,7 +500,6 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
-                    <Property name="rowHeight" type="int" value="20"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>

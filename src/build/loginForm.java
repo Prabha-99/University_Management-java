@@ -123,10 +123,7 @@ public class loginForm extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis?useSSL=false","root","")) {
-//                if(conn!=null){    //Checking the connection
-//                    System.out.println("Connected");
-//                }   //Getting Username & Password
+             
                 String username=nameField.getText();
                 String password=passwordField.getText() ;
                 Statement stm=conn.createStatement();
