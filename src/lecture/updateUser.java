@@ -1,7 +1,7 @@
 
 package lecture;
 
-import build.DBconnect;
+import admin.DBconnect;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,7 +1,7 @@
 
 package lecture;
 
-import build.DBconnect;
+import admin.DBconnect;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

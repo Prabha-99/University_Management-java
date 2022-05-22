@@ -4,7 +4,7 @@
  */
 package lecture;
 
-import build.DBconnect;
+import admin.DBconnect;
 
 public class lecture extends DBconnect 
 {

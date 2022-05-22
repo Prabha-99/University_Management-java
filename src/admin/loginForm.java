@@ -1,6 +1,7 @@
-package build;
+package admin;
 import java.awt.HeadlessException;
 import java.sql.*;
+
 import javax.swing.JOptionPane;
 
 public class loginForm extends javax.swing.JFrame {
@@ -21,9 +22,9 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         loginHeading = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
+        nameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        nameField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +45,6 @@ public class loginForm extends javax.swing.JFrame {
 
         loginButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         loginButton.setText("LOGIN");
-        loginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -56,28 +56,28 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(loginButton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(86, 86, 86)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(loginButton)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(passwordLabel)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(passwordLabel))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(loginHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameField, nameLabel, passwordField, passwordLabel});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addComponent(loginHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -89,7 +89,7 @@ public class loginForm extends javax.swing.JFrame {
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(71, 71, 71))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {nameField, nameLabel, passwordField, passwordLabel});
@@ -117,49 +117,50 @@ public class loginForm extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         //Login logic
-        if(nameField.getText().isEmpty() || passwordField.getText().isEmpty()){ //Checking whether the Login Fields Empty of Not
-            JOptionPane.showMessageDialog(this,"Enter Credentials to Login.!!!");
+        if(nameField.getText().isEmpty() && passwordField.getText().isEmpty()){
+           JOptionPane.showMessageDialog(this,"Enter Credentials to login!!!"); 
         }else{
         
         try{
             Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
-             
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis?useSSL=false","root","")) {
+            //if(conn!=null){    //Checking the connection
+            //System.out.println("Connected");
+            //}
+                //Getting Username & Password
                 String username=nameField.getText();
                 String password=passwordField.getText() ;
                 Statement stm=conn.createStatement();
                 //Mysql Query
-                String sql="SELECT * FROM users WHERE Email='"+username+"' || userID='"+username+"' && Password='"+password+"' || Password='"+password+"'";
-                          
+                String sql="SELECT * FROM users WHERE userID='"+username+"' AND Password='"+password+"'";
+
                 ResultSet result=stm.executeQuery(sql);
 
-                              
+                //if Username and Password matches close the login and open the dashnoard
                 if (result.next()) {
                     if(nameField.getText().startsWith("A")){
-                       //if Username and Password matches close the login and open the dashnoard
-                       dispose(); // Closing the Login
-                       adminDashboard dash=new adminDashboard();
-                       dash.show();
+                        //if Username and Password matches close the login and open the dashnoard
+                        dispose(); // Closing the Login
+                        adminDashboard dash=new adminDashboard();
+                        dash.show();
                     } else if(nameField.getText().startsWith("L")) {
-                       dispose(); // Closing the Login
-                       otherDashboard dash=new otherDashboard();
-                       dash.show();
+                        dispose(); // Closing the Login
+                        otherDashboard dash=new otherDashboard();
+                        dash.show();
                     }else if(nameField.getText().startsWith("S")) {
-                       dispose(); // Closing the Login
-                       otherDashboard dash=new otherDashboard();
-                       dash.show();
+                        dispose(); // Closing the Login
+                        otherDashboard dash=new otherDashboard();
+                        dash.show();
                     }else if(nameField.getText().startsWith("TO")){
-                       dispose(); // Closing the Login
-                       otherDashboard dash=new otherDashboard();
-                       dash.show();
+                        dispose(); // Closing the Login
+                        otherDashboard dash=new otherDashboard();
+                        dash.show();
                     }else{
                         JOptionPane.showMessageDialog(this,"Unauthorized User...!!!");
                     }
-//                       mainInterface main=new mainInterface();
-//                       main.dispose();                             //!!!!!!!!!!!!!Not Working!!!!!!!!!!!
-                                        
-               } else {
-                    JOptionPane.showMessageDialog(this,"Invalid Username or Password.!!!");//Wrong Creditionals Message Box
-                    
+
+                } else {
+                    JOptionPane.showMessageDialog(this,"Username or Password is Wrong");//Wrong Creditionals Message Box
                     //Clearing the form for next Entry.
                     nameField.setText("");
                     passwordField.setText("");
@@ -167,13 +168,11 @@ public class loginForm extends javax.swing.JFrame {
                 //Closing the Connection
                 conn.close();
             }
-                    
-                    
+
         }catch(HeadlessException | ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
-            }
-        
         }
+       }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     

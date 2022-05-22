@@ -1,5 +1,5 @@
 
-package build;
+package admin;
 
 
 public class mainInterface extends javax.swing.JFrame {
@@ -35,6 +35,7 @@ public class mainInterface extends javax.swing.JFrame {
         background.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         background.setForeground(new java.awt.Color(204, 204, 204));
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Faculty.png")); // NOI18N
 
         facultyHeading.setFont(new java.awt.Font("Lucida Fax", 1, 52)); // NOI18N
         facultyHeading.setForeground(new java.awt.Color(204, 204, 204));
@@ -48,6 +49,7 @@ public class mainInterface extends javax.swing.JFrame {
         welcomeNote2.setForeground(new java.awt.Color(204, 204, 204));
         welcomeNote2.setText("Management Information System");
 
+        startButton.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Images\\StartButton.png")); // NOI18N
         startButton.setBorder(null);
         startButton.setBorderPainted(false);
         startButton.setContentAreaFilled(false);
@@ -68,10 +70,6 @@ public class mainInterface extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(facultyHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(331, 331, 331))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(154, 154, 154)
                 .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
@@ -81,11 +79,15 @@ public class mainInterface extends javax.swing.JFrame {
                             .addComponent(welcomeNote, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(welcomeNote3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(welcomeNote2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(132, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(253, 253, 253)
                         .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(317, 317, 317)
+                .addComponent(facultyHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +105,7 @@ public class mainInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                         .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(102, 102, 102))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84))))

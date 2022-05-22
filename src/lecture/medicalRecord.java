@@ -4,7 +4,7 @@
  */
 package lecture;
 
-import build.DBconnect;
+import admin.DBconnect;
 import com.mysql.cj.xdevapi.Table;
 import com.sun.jdi.connect.spi.Connection;
 

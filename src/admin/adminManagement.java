@@ -1,4 +1,4 @@
-package build;
+package admin;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -150,6 +150,11 @@ public class adminManagement extends javax.swing.JFrame {
                 closeButtonMouseClicked(evt);
             }
         });
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         lnameLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         lnameLabel.setForeground(new java.awt.Color(0, 51, 102));
@@ -213,7 +218,7 @@ public class adminManagement extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(closeButton))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, passwordField});
@@ -454,6 +459,10 @@ public class adminManagement extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
        
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeButtonActionPerformed
 
     
     
