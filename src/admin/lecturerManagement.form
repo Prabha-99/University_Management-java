@@ -86,10 +86,10 @@
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="userIDField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="dobField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="addressField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="addressField1" linkSize="2" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
                                           <Component id="fnameField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
                                           <Component id="lnameField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="jDateChooser1" linkSize="2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -162,13 +162,13 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="addressField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="addressField1" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="addressLabel1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dobField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="dobLabel1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="dobLabel1" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser1" linkSize="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -289,8 +289,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="DOB :"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="dobField1">
             </Component>
             <Component class="javax.swing.JLabel" name="genderLabel1">
               <Properties>
@@ -479,6 +477,8 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

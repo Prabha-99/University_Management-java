@@ -160,7 +160,7 @@ public class adminManagement extends javax.swing.JFrame {
         lnameLabel.setForeground(new java.awt.Color(0, 51, 102));
         lnameLabel.setText("Last Name");
 
-        dobField.setDateFormatString("y -M -d");
+        dobField.setDateFormatString("YYYY-MM-DD");
         dobField.setFont(new java.awt.Font("Lucida Fax", 0, 11)); // NOI18N
         dobField.setMinimumSize(new java.awt.Dimension(25, 17));
 

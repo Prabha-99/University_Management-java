@@ -38,7 +38,6 @@ public class lecturerManagement extends javax.swing.JFrame {
         addressLabel1 = new javax.swing.JLabel();
         addressField1 = new javax.swing.JTextField();
         dobLabel1 = new javax.swing.JLabel();
-        dobField1 = new javax.swing.JTextField();
         genderLabel1 = new javax.swing.JLabel();
         genderField1 = new javax.swing.JTextField();
         emailLabel1 = new javax.swing.JLabel();
@@ -56,6 +55,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         positionField = new javax.swing.JPasswordField();
         studentsTable = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,10 +188,10 @@ public class lecturerManagement extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addGroup(whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(userIDField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dobField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(addressField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fnameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lnameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lnameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(128, 128, 128)
                                 .addGroup(whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(whitePanel1Layout.createSequentialGroup()
@@ -225,6 +225,9 @@ public class lecturerManagement extends javax.swing.JFrame {
                         .addComponent(resetUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        whitePanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressField1, jDateChooser1});
+
         whitePanel1Layout.setVerticalGroup(
             whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(whitePanel1Layout.createSequentialGroup()
@@ -250,9 +253,9 @@ public class lecturerManagement extends javax.swing.JFrame {
                             .addComponent(addressField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(addressLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dobField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dobLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dobLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanel1Layout.createSequentialGroup()
                         .addGroup(whitePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanel1Layout.createSequentialGroup()
@@ -287,6 +290,8 @@ public class lecturerManagement extends javax.swing.JFrame {
         );
 
         whitePanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {mobileField1, passwordField1, positionField});
+
+        whitePanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addressField1, jDateChooser1});
 
         javax.swing.GroupLayout bluePanel1Layout = new javax.swing.GroupLayout(bluePanel1);
         bluePanel1.setLayout(bluePanel1Layout);
@@ -374,7 +379,6 @@ public class lecturerManagement extends javax.swing.JFrame {
     private javax.swing.JPanel bluePanel1;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton deleteUserButton;
-    private javax.swing.JTextField dobField1;
     private javax.swing.JLabel dobLabel1;
     private javax.swing.JButton editUserButton;
     private javax.swing.JTextField emailField1;
@@ -383,6 +387,7 @@ public class lecturerManagement extends javax.swing.JFrame {
     private javax.swing.JLabel fnamelabel1;
     private javax.swing.JTextField genderField1;
     private javax.swing.JLabel genderLabel1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lecturermanagementHeading;
     private javax.swing.JTextField lnameField1;
