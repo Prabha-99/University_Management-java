@@ -69,7 +69,7 @@ public class loginForm extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameField, nameLabel, passwordField, passwordLabel});
@@ -111,7 +111,7 @@ public class loginForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(562, 397));
+        setSize(new java.awt.Dimension(555, 397));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,7 +123,7 @@ public class loginForm extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmis?useSSL=false","root","")) {
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss?useSSL=false","root","")) {
             //if(conn!=null){    //Checking the connection
             //System.out.println("Connected");
             //}
@@ -132,7 +132,7 @@ public class loginForm extends javax.swing.JFrame {
                 String password=passwordField.getText() ;
                 Statement stm=conn.createStatement();
                 //Mysql Query
-                String sql="SELECT * FROM users WHERE userID='"+username+"' AND Password='"+password+"'";
+                String sql="SELECT * FROM user WHERE user_id='"+username+"' AND password='"+password+"'";
 
                 ResultSet result=stm.executeQuery(sql);
 
@@ -199,7 +199,8 @@ public class loginForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(loginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+      
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
