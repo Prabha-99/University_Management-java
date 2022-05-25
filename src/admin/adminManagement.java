@@ -10,7 +10,8 @@ import javax.swing.table.DefaultTableModel;
 public class adminManagement extends javax.swing.JFrame {
     
     public adminManagement() { //Creates new form adminManagement
-        initComponents();    
+        initComponents();  
+        displayData();
     }
 
     @SuppressWarnings("unchecked")
@@ -102,6 +103,11 @@ public class adminManagement extends javax.swing.JFrame {
                 newUserButtonMouseClicked(evt);
             }
         });
+        newUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newUserButtonActionPerformed(evt);
+            }
+        });
 
         editUserButton.setBackground(new java.awt.Color(0, 51, 102));
         editUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -130,12 +136,7 @@ public class adminManagement extends javax.swing.JFrame {
         adminsTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         adminsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "UserID", "fname", "lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
@@ -191,9 +192,6 @@ public class adminManagement extends javax.swing.JFrame {
                                     .addComponent(userIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(whitePanelLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1069, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(whitePanelLayout.createSequentialGroup()
                                 .addGap(168, 168, 168)
                                 .addComponent(newUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -227,11 +225,15 @@ public class adminManagement extends javax.swing.JFrame {
                                                 .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addGap(0, 43, Short.MAX_VALUE)))
+                        .addGap(0, 129, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(closeButton))
+            .addGroup(whitePanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1069, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, genderField, passwordField});
@@ -291,9 +293,9 @@ public class adminManagement extends javax.swing.JFrame {
                     .addComponent(editUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(33, 33, 33))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addressField, fnameField, fnamelabel, userIDField, userIDLabel});
@@ -334,7 +336,7 @@ public class adminManagement extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void displayData(){
+    public void displayData(){ //Method for retrieve Table data into Jtable
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
             
@@ -428,41 +430,12 @@ public class adminManagement extends javax.swing.JFrame {
                     emailField.setText("");
                     passwordField.setText("");
                     
-                    
-                    
-//                    //Inserting DB table data into the Jtable
-                   
-                    Statement st=conn.createStatement();
-                    String sql="SELECT * FROM users";       //Query to Retrive data from DB
-                    ResultSet result=st.executeQuery(sql);  // Executing the Query
-                    
-                    
-                    
-                    //Getting data into String Variables from table until End of Table data
-                    while(result.next()){
-                        String userid=result.getString("userID");
-                        String fname=result.getString("fname");
-                        String lname=result.getString("lname");
-                        String address=result.getString("address");
-                        String dob=result.getString("dob");
-                        String gender=result.getString("gender");
-                        String mobile=result.getString("mobile");
-                        String email=result.getString("email");
-                        String password=result.getString("password");
                         
-                        //String Array for Store data into Jtabel
-                        String intoJ[]={userid,fname,lname,address,dob,gender,mobile,email,password};
-                        DefaultTableModel model=(DefaultTableModel)adminsTable.getModel(); //Allows to "insert" a row at a specified location in the model
-                        
-                        model.addRow(intoJ);
-                    }
-
                     
-                    
-                                               
             } catch (SQLException ex) {
                 Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
-            }                
+            }   
+                
        }   
     }//GEN-LAST:event_newUserButtonMouseClicked
 
@@ -495,6 +468,10 @@ public class adminManagement extends javax.swing.JFrame {
         emailField.setText("");
         passwordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
+
+    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newUserButtonActionPerformed
 
     
     

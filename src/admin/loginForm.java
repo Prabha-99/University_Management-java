@@ -162,8 +162,8 @@ public class loginForm extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this,"Username or Password is Wrong");//Wrong Creditionals Message Box
                     //Clearing the form for next Entry.
-                    nameField.setText("");
-                    passwordField.setText("");
+//                    nameField.setText("");
+//                    passwordField.setText("");
                 }
                 //Closing the Connection
                 conn.close();
