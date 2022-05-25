@@ -55,7 +55,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="whitePanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,52 +74,58 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="studentsTable" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
+                                  <Component id="lecturermanagementHeading" alignment="0" min="-2" pref="917" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fnamelabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="addressLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="dobLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="userIDLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="lnameLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="fnamelabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="addressLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="userIDLabel" linkSize="4" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="lnameLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="lecturerDepartmentLabe" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="userIDField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="addressField1" linkSize="2" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="fnameField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="lnameField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="jDateChooser1" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="userIDField" linkSize="8" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="addressField" linkSize="2" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="lnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="fnameField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="lectureDepartmentField" linkSize="8" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="mobileLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  <Component id="genderLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  <Component id="emailLabel1" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="mobileLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="genderLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="emailLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="genderField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                                  <Component id="emailField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                                  <Component id="mobileField1" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                  <Component id="emailField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                  <Component id="mobileField" linkSize="12" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                  <Component id="genderField" linkSize="2" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="passwordLabel1" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <Component id="passwordLabel" min="-2" pref="145" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="passwordField1" max="32767" attributes="0"/>
+                                              <Component id="passwordField" linkSize="12" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="positionLabel" min="-2" pref="145" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="positionField" max="32767" attributes="0"/>
+                                              <Component id="positionField" linkSize="12" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="dobLabel" min="-2" pref="145" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="dobField" linkSize="2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="studentsTable" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
-                                  <Component id="lecturermanagementHeading" alignment="0" min="-2" pref="917" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -143,73 +149,85 @@
                       <Component id="closeButton" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="lecturermanagementHeading" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="userIDLabel1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="userIDField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="userIDLabel" linkSize="5" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="userIDField" linkSize="9" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="fnameField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="fnamelabel1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="editUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="deleteUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="resetUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="newUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lnameLabel1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="lnameField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="addressField1" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="addressLabel1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="dobLabel1" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser1" linkSize="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="studentsTable" pref="136" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Component id="genderLabel1" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="dobLabel" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lecturerDepartmentLabe" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lectureDepartmentField" linkSize="9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="fnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="fnamelabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lnameLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="lnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="addressField" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="addressLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                              <Component id="dobField" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="genderLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <Component id="genderField" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="emailField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                                  <Component id="emailLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="mobileLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                                  <Component id="mobileField" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="passwordField" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="passwordLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="positionLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="positionField" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="genderField1" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="emailField1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="emailLabel1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="mobileLabel1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="mobileField1" linkSize="1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="passwordField1" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="passwordLabel1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="positionLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="positionField" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="editUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="deleteUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="resetUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="newUserButton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="studentsTable" pref="136" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -227,7 +245,7 @@
                 <Property name="text" type="java.lang.String" value="Manage Lecturers_________________________"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="userIDLabel1">
+            <Component class="javax.swing.JLabel" name="userIDLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -238,9 +256,9 @@
                 <Property name="text" type="java.lang.String" value="userID :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="userIDField1">
+            <Component class="javax.swing.JTextField" name="userIDField">
             </Component>
-            <Component class="javax.swing.JLabel" name="fnamelabel1">
+            <Component class="javax.swing.JLabel" name="fnamelabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -251,9 +269,9 @@
                 <Property name="text" type="java.lang.String" value="First Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="fnameField1">
+            <Component class="javax.swing.JTextField" name="fnameField">
             </Component>
-            <Component class="javax.swing.JLabel" name="lnameLabel1">
+            <Component class="javax.swing.JLabel" name="lnameLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -264,9 +282,9 @@
                 <Property name="text" type="java.lang.String" value="Last Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lnameField1">
+            <Component class="javax.swing.JTextField" name="lnameField">
             </Component>
-            <Component class="javax.swing.JLabel" name="addressLabel1">
+            <Component class="javax.swing.JLabel" name="addressLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -277,9 +295,9 @@
                 <Property name="text" type="java.lang.String" value="Address :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="addressField1">
+            <Component class="javax.swing.JTextField" name="addressField">
             </Component>
-            <Component class="javax.swing.JLabel" name="dobLabel1">
+            <Component class="javax.swing.JLabel" name="dobLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -290,7 +308,7 @@
                 <Property name="text" type="java.lang.String" value="DOB :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="genderLabel1">
+            <Component class="javax.swing.JLabel" name="genderLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -301,9 +319,7 @@
                 <Property name="text" type="java.lang.String" value="Gender :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="genderField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="emailLabel1">
+            <Component class="javax.swing.JLabel" name="emailLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -314,9 +330,9 @@
                 <Property name="text" type="java.lang.String" value="Email :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="emailField1">
+            <Component class="javax.swing.JTextField" name="emailField">
             </Component>
-            <Component class="javax.swing.JLabel" name="mobileLabel1">
+            <Component class="javax.swing.JLabel" name="mobileLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -327,9 +343,9 @@
                 <Property name="text" type="java.lang.String" value="Mobile :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="mobileField1">
+            <Component class="javax.swing.JTextField" name="mobileField">
             </Component>
-            <Component class="javax.swing.JLabel" name="passwordLabel1">
+            <Component class="javax.swing.JLabel" name="passwordLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -340,9 +356,9 @@
                 <Property name="text" type="java.lang.String" value="Password :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="passwordField1">
+            <Component class="javax.swing.JPasswordField" name="passwordField">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordFieldActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="newUserButton">
@@ -361,6 +377,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="newUserButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editUserButton">
               <Properties>
@@ -412,6 +431,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetUserButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="closeButton">
               <Properties>
@@ -441,11 +463,6 @@
                 <Property name="text" type="java.lang.String" value="Position :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="positionField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="positionFieldActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="studentsTable">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -453,21 +470,81 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="lecturerTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="5">
+                      <Table columnCount="11" rowCount="0">
                         <Column editable="true" title="UserID" type="java.lang.Object"/>
-                        <Column editable="true" title="Fname" type="java.lang.Object"/>
+                        <Column editable="true" title="Department" type="java.lang.Object"/>
+                        <Column editable="true" title="FName" type="java.lang.Object"/>
                         <Column editable="true" title="Lname" type="java.lang.Object"/>
                         <Column editable="true" title="Address" type="java.lang.Object"/>
                         <Column editable="true" title="DOB" type="java.lang.Object"/>
                         <Column editable="true" title="Gender" type="java.lang.Object"/>
                         <Column editable="true" title="Mobile" type="java.lang.Object"/>
                         <Column editable="true" title="Email" type="java.lang.Object"/>
+                        <Column editable="true" title="Position" type="java.lang.Object"/>
                         <Column editable="true" title="Password" type="java.lang.Object"/>
-                        <Column editable="true" title="Level" type="java.lang.Object"/>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
                     </Property>
                     <Property name="rowHeight" type="int" value="20"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -477,7 +554,64 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            <Component class="com.toedter.calendar.JDateChooser" name="dobField">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;YYYY-MM-DD&quot;" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lecturerDepartmentLabe">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Fax" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="33" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="LecDepartment :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="lectureDepartmentField">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="depICT"/>
+                    <StringItem index="1" value="depET"/>
+                    <StringItem index="2" value="depBST"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="genderField">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Male"/>
+                    <StringItem index="1" value="Female"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="positionField">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="HOD"/>
+                    <StringItem index="1" value="Senior"/>
+                    <StringItem index="2" value="Probationary"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

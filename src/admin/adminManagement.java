@@ -11,7 +11,7 @@ public class adminManagement extends javax.swing.JFrame {
     
     public adminManagement() { //Creates new form adminManagement
         initComponents();  
-        displayData();
+        displayData(); //Calling displayData() method
     }
 
     @SuppressWarnings("unchecked")
@@ -341,20 +341,21 @@ public class adminManagement extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void displayData(){ //Method for retrieve Table data into Jtable
+    //Method for retrieve Table data into Jtable
+    public void displayData(){ 
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
             
                     //Retrieveing DB table data into the Jtable
                    
                     Statement st=conn.createStatement();
-                    String sql="SELECT * FROM user";       //Query to Retrive data from DB
+                    String sql="SELECT * FROM admin";       //Query to Retrive data from DB
                     ResultSet result=st.executeQuery(sql);  // Executing the Query
                     
                                        
                     //Getting data into String Variables from table until End of Table data
                     while(result.next()){
-                        String userid=result.getString("user_id");
+                        String userid=result.getString("AID");
                         String fname=result.getString("fName");
                         String lname=result.getString("lName");
                         String address=result.getString("address");
@@ -478,6 +479,8 @@ public class adminManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newUserButtonActionPerformed
 
+    
+    //User Deletion Method
     private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
         Connection conn;
         if(userIDField.getText().isEmpty()){
@@ -491,6 +494,7 @@ public class adminManagement extends javax.swing.JFrame {
         String userid=userIDField.getText();
         String sql="DELETE FROM * WHERE user_id='"+userid+"'";
         ResultSet result=st.executeQuery(sql);  // Executing the Query
+        
         
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");

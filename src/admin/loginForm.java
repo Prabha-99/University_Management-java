@@ -145,7 +145,7 @@ public class loginForm extends javax.swing.JFrame {
                         dash.show();
                     } else if(nameField.getText().startsWith("L")) {
                         dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
+                        lecture.lectureDashboard dash=new lecture.lectureDashboard();
                         dash.show();
                     }else if(nameField.getText().startsWith("S")) {
                         dispose(); // Closing the Login
