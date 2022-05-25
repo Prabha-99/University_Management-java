@@ -120,6 +120,11 @@ public class adminManagement extends javax.swing.JFrame {
         resetButton.setForeground(new java.awt.Color(204, 204, 204));
         resetButton.setText("Reset");
         resetButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
 
         adminsTable.setBorder(new javax.swing.border.MatteBorder(null));
         adminsTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
@@ -476,6 +481,20 @@ public class adminManagement extends javax.swing.JFrame {
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        
+        //Resetting Fields
+        userIDField.setText("");
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        mobileField.setText("");
+        emailField.setText("");
+        passwordField.setText("");
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     
     
