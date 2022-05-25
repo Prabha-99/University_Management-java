@@ -430,32 +430,32 @@ public class adminManagement extends javax.swing.JFrame {
                     
                     
                     
-////                    //Inserting DB table data into the Jtable
-//                   
-//                    Statement st=conn.createStatement();
-//                    String sql="SELECT * FROM users";       //Query to Retrive data from DB
-//                    ResultSet result=st.executeQuery(sql);  // Executing the Query
-//                    
-//                    
-//                    
-//                    //Getting data into String Variables from table until End of Table data
-//                    while(result.next()){
-//                        String userid=result.getString("userID");
-//                        String fname=result.getString("fname");
-//                        String lname=result.getString("lname");
-//                        String address=result.getString("address");
-//                        String dob=result.getString("dob");
-//                        String gender=result.getString("gender");
-//                        String mobile=result.getString("mobile");
-//                        String email=result.getString("email");
-//                        String password=result.getString("password");
-//                        
-//                        //String Array for Store data into Jtabel
-//                        String intoJ[]={userid,fname,lname,address,dob,gender,mobile,email,password};
-//                        DefaultTableModel model=(DefaultTableModel)adminsTable.getModel(); //Allows to "insert" a row at a specified location in the model
-//                        
-//                        model.addRow(intoJ);
-//                    }
+//                    //Inserting DB table data into the Jtable
+                   
+                    Statement st=conn.createStatement();
+                    String sql="SELECT * FROM users";       //Query to Retrive data from DB
+                    ResultSet result=st.executeQuery(sql);  // Executing the Query
+                    
+                    
+                    
+                    //Getting data into String Variables from table until End of Table data
+                    while(result.next()){
+                        String userid=result.getString("userID");
+                        String fname=result.getString("fname");
+                        String lname=result.getString("lname");
+                        String address=result.getString("address");
+                        String dob=result.getString("dob");
+                        String gender=result.getString("gender");
+                        String mobile=result.getString("mobile");
+                        String email=result.getString("email");
+                        String password=result.getString("password");
+                        
+                        //String Array for Store data into Jtabel
+                        String intoJ[]={userid,fname,lname,address,dob,gender,mobile,email,password};
+                        DefaultTableModel model=(DefaultTableModel)adminsTable.getModel(); //Allows to "insert" a row at a specified location in the model
+                        
+                        model.addRow(intoJ);
+                    }
 
                     
                     
@@ -525,8 +525,7 @@ public class adminManagement extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
-        adminManagement management=new adminManagement();
-        management.displayData();
+        
         
         
         

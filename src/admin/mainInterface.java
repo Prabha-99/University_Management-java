@@ -128,7 +128,7 @@ public class mainInterface extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(911, 539));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
