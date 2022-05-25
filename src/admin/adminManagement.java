@@ -120,6 +120,11 @@ public class adminManagement extends javax.swing.JFrame {
         deleteUserButton.setForeground(new java.awt.Color(204, 204, 204));
         deleteUserButton.setText("Delete");
         deleteUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteUserButtonActionPerformed(evt);
+            }
+        });
 
         resetButton.setBackground(new java.awt.Color(0, 51, 102));
         resetButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -472,6 +477,34 @@ public class adminManagement extends javax.swing.JFrame {
     private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newUserButtonActionPerformed
+
+    private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
+        Connection conn;
+        if(userIDField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
+        }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            
+        Statement st=conn.createStatement();
+        
+        String userid=userIDField.getText();
+        String sql="DELETE FROM * WHERE user_id='"+userid+"'";
+        ResultSet result=st.executeQuery(sql);  // Executing the Query
+        
+        userIDField.setText("");//Clearing text Field
+        JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }  
+            
+                    
+                   
+        
+        
+    }//GEN-LAST:event_deleteUserButtonActionPerformed
 
     
     
