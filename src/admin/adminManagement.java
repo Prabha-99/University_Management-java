@@ -152,6 +152,11 @@ public class adminManagement extends javax.swing.JFrame {
                 "UserID", "fname", "lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
             }
         ));
+        adminsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminsTableMouseClicked(evt);
+            }
+        });
         SP.setViewportView(adminsTable);
 
         closeButton.setBackground(new java.awt.Color(0, 51, 102));
@@ -528,8 +533,60 @@ public class adminManagement extends javax.swing.JFrame {
             String mobile=mobileField.getText();
             String email=emailField.getText();
             String password=passwordField.getText(); 
+           
+            
+            //Setting Updated Value at Row
+            
+            model.setValueAt(id, adminsTable.getSelectedRow(),0);
+            model.setValueAt(fname, adminsTable.getSelectedRow(),1);
+            model.setValueAt(lname, adminsTable.getSelectedRow(),2);
+            model.setValueAt(address, adminsTable.getSelectedRow(),3);
+            model.setValueAt(dob, adminsTable.getSelectedRow(),4);
+            model.setValueAt(gender, adminsTable.getSelectedRow(),5);
+            model.setValueAt(mobile, adminsTable.getSelectedRow(),6);
+            model.setValueAt(email, adminsTable.getSelectedRow(),7);
+            model.setValueAt(password, adminsTable.getSelectedRow(),8);
+            
+            //Updating into Database
+            
+            
+            
+        }else{
+            if(adminsTable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(this,"Table is Empty...");
+            }else{
+               JOptionPane.showMessageDialog(this,"Please Select a Single Row.!!!"); 
+            }
         }
     }//GEN-LAST:event_editUserButtonActionPerformed
+
+    private void adminsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminsTableMouseClicked
+        //Setting Data into the Text Fields when click on a Row
+        
+        DefaultTableModel model=(DefaultTableModel)adminsTable.getModel();
+        
+        String tblid=model.getValueAt(adminsTable.getSelectedRow(),0).toString();
+        String tblfname=model.getValueAt(adminsTable.getSelectedRow(),1).toString();
+        String tbllname=model.getValueAt(adminsTable.getSelectedRow(),2).toString();
+        String tbladdress=model.getValueAt(adminsTable.getSelectedRow(),3).toString();
+        String tbldob=model.getValueAt(adminsTable.getSelectedRow(),4).toString();
+        String tblgender=model.getValueAt(adminsTable.getSelectedRow(),5).toString();
+        String tblmobile=model.getValueAt(adminsTable.getSelectedRow(),6).toString();
+        String tblemail=model.getValueAt(adminsTable.getSelectedRow(),7).toString();
+        String tblpassword=model.getValueAt(adminsTable.getSelectedRow(),8).toString();
+        
+        userIDField.setText(tblid);
+        fnameField.setText(tblfname);
+        lnameField.setText(tbllname);
+        addressField.setText(tbladdress);
+        dobField.setDateFormatString(tbldob);
+        genderField.setSelectedItem(tblgender);
+        mobileField.setText(tblmobile);
+        emailField.setText(tblemail);
+        passwordField.setText(tblpassword);
+        
+        
+    }//GEN-LAST:event_adminsTableMouseClicked
 
     
     
