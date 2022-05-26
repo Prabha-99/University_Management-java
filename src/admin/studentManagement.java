@@ -4,6 +4,17 @@
  */
 package admin;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Anonymous
@@ -52,7 +63,7 @@ public class studentManagement extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
         studentDepartmentLabel = new javax.swing.JLabel();
         studentsTable = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        studentTable = new javax.swing.JTable();
         studentDepartmentField = new javax.swing.JComboBox<>();
         dobField = new com.toedter.calendar.JDateChooser();
         genderField = new javax.swing.JComboBox<>();
@@ -112,6 +123,11 @@ public class studentManagement extends javax.swing.JFrame {
         newUserButton.setForeground(new java.awt.Color(204, 204, 204));
         newUserButton.setText("New");
         newUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newUserButtonActionPerformed(evt);
+            }
+        });
 
         editUserButton.setBackground(new java.awt.Color(0, 51, 102));
         editUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -147,20 +163,16 @@ public class studentManagement extends javax.swing.JFrame {
         studentDepartmentLabel.setForeground(new java.awt.Color(0, 51, 102));
         studentDepartmentLabel.setText("StdDepartment :");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "UserID", "Fname", "Lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password", "Level"
+                "UserID", "Department", "Fname", "Lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
             }
         ));
-        jTable1.setRowHeight(20);
-        studentsTable.setViewportView(jTable1);
+        studentTable.setRowHeight(20);
+        studentsTable.setViewportView(studentTable);
 
         studentDepartmentField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "depICT", "depET", "depBST" }));
 
@@ -199,7 +211,7 @@ public class studentManagement extends javax.swing.JFrame {
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(whitePanelLayout.createSequentialGroup()
                                         .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(dobField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(whitePanelLayout.createSequentialGroup()
                                         .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +227,7 @@ public class studentManagement extends javax.swing.JFrame {
                                         .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(34, 34, 34))
+                                .addGap(42, 42, 42))
                             .addComponent(studentsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(studentmanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(whitePanelLayout.createSequentialGroup()
@@ -248,10 +260,15 @@ public class studentManagement extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(whitePanelLayout.createSequentialGroup()
-                        .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(whitePanelLayout.createSequentialGroup()
+                                .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(userIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(userIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
+                                .addComponent(dobField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)))
                         .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(whitePanelLayout.createSequentialGroup()
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -261,9 +278,8 @@ public class studentManagement extends javax.swing.JFrame {
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(fnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(fnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fnameField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(studentDepartmentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(studentDepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -295,9 +311,7 @@ public class studentManagement extends javax.swing.JFrame {
                                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(whitePanelLayout.createSequentialGroup()
-                        .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dobField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -351,6 +365,115 @@ public class studentManagement extends javax.swing.JFrame {
         new adminDashboard().setVisible(true);
     }//GEN-LAST:event_closeButtonMouseClicked
 
+    public void displayData(){ 
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            
+                    //Retrieveing DB table data into the Jtable
+                   
+                    Statement st=conn.createStatement();
+                    String sql="SELECT * FROM students";       //Query to Retrive data from DB
+                    ResultSet result=st.executeQuery(sql);  // Executing the Query
+                    
+                                       
+                    //Getting data into String Variables from table until End of Table data
+                    while(result.next()){
+                        String userid=result.getString("SID");
+                        String stddepartment=result.getString("dep_id");
+                        String fname=result.getString("fName");
+                        String lname=result.getString("lName");
+                        String dob=result.getString("dob");
+                        String gender=result.getString("gender");
+                        String address=result.getString("address");               
+                        String email=result.getString("email");
+                        String mobile=result.getString("mobile");                                           
+                        String password=result.getString("password");
+                        
+                        
+                        //String Array for Store data into Jtabel
+                        String intoJ[]={userid,stddepartment,fname,lname,dob,gender,address,email,mobile,password};
+                        DefaultTableModel model=(DefaultTableModel)studentTable.getModel(); //Allows to "insert" a row at a specified location in the model
+                        
+                        model.addRow(intoJ);
+                        
+                        
+                    }
+                              
+                    } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+    
+    
+    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
+                //Adduser Fucntion
+            if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  emailField.getText().isEmpty() || mobileField.getText().isEmpty()  || passwordField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                    if(conn!=null){    //Checking the connection
+                        System.out.println("Connected");
+                    }
+                                                          
+                    //Inserting Data into (users) Table
+                    PreparedStatement add= conn.prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)");  // Inserting into Users Table
+                    
+                    add.setString(1,userIDField.getText());
+                    add.setString(2, (String) studentDepartmentField.getSelectedItem());
+                    add.setString(3,fnameField.getText());
+                    add.setString(4,lnameField.getText());
+                    add.setString(6,dobField.getDateFormatString());
+                    add.setString(7, (String) genderField.getSelectedItem());
+                    add.setString(5,addressField.getText());    
+                    add.setString(9,emailField.getText());
+                    add.setString(8,mobileField.getText());                   
+                    add.setString(10,passwordField.getText());
+                    
+                    
+                    int row=add.executeUpdate();// Executing the Insert Query
+                    JOptionPane.showMessageDialog(this,"New User Added Successfully..."); //Success message
+                    
+                    //Inserting Data into (Lecturer) Table
+                    PreparedStatement add2=conn.prepareStatement("INSERT INTO students VALUES(?,?,?,?,?,?,?,?,?,?)");  //Inserting Into Admin Table
+                    
+                    add2.setString(1,userIDField.getText());
+                    add2.setString(2, (String) studentDepartmentField.getSelectedItem());
+                    add2.setString(3,fnameField.getText());
+                    add2.setString(4,lnameField.getText());
+                    add2.setString(5,addressField.getText());
+                    add2.setString(6,dobField.getDateFormatString());
+                    add2.setString(7, (String) genderField.getSelectedItem());
+                    add2.setString(9,emailField.getText());
+                    add2.setString(8,mobileField.getText());
+                    add2.setString(10,passwordField.getText());
+                    
+                    
+                    int row2=add2.executeUpdate();
+                    
+                    
+                    //Clearing the form for next Entry.
+                    userIDField.setText("");
+                    studentDepartmentField.setSelectedItem("");
+                    fnameField.setText("");
+                    lnameField.setText("");
+                    addressField.setText("");
+                    dobField.setDateFormatString("");
+                    genderField.setSelectedItem("");
+                    emailField.setText("");
+                    mobileField.setText("");              
+                    passwordField.setText("");
+                    
+                    
+                        
+                    
+            } catch (SQLException ex) {
+                Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+                
+       }
+    }//GEN-LAST:event_newUserButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -401,7 +524,6 @@ public class studentManagement extends javax.swing.JFrame {
     private javax.swing.JLabel fnamelabel;
     private javax.swing.JComboBox<String> genderField;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField lnameField;
     private javax.swing.JLabel lnameLabel;
     private javax.swing.JTextField mobileField;
@@ -412,6 +534,7 @@ public class studentManagement extends javax.swing.JFrame {
     private javax.swing.JButton resetUserButton;
     private javax.swing.JComboBox<String> studentDepartmentField;
     private javax.swing.JLabel studentDepartmentLabel;
+    private javax.swing.JTable studentTable;
     private javax.swing.JLabel studentmanagementHeading;
     private javax.swing.JScrollPane studentsTable;
     private javax.swing.JTextField userIDField;

@@ -98,7 +98,7 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="dobLabel" min="-2" pref="145" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="dobField" linkSize="4" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -120,7 +120,7 @@
                                               <Component id="passwordField" min="-2" pref="241" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="studentsTable" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
                                   <Component id="studentmanagementHeading" alignment="0" min="-2" pref="917" max="-2" attributes="0"/>
@@ -154,11 +154,19 @@
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="userIDLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="userIDField" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="userIDLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                          <Component id="userIDField" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="dobField" linkSize="5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -169,10 +177,8 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="emailField" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                           <Component id="emailLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                                              <Component id="fnamelabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="fnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="fnamelabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="fnameField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -217,10 +223,7 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="dobLabel" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="dobField" linkSize="5" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="dobLabel" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -373,6 +376,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newUserButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editUserButton">
               <Properties>
@@ -462,11 +468,12 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="studentTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="5">
+                      <Table columnCount="10" rowCount="0">
                         <Column editable="true" title="UserID" type="java.lang.Object"/>
+                        <Column editable="true" title="Department" type="java.lang.Object"/>
                         <Column editable="true" title="Fname" type="java.lang.Object"/>
                         <Column editable="true" title="Lname" type="java.lang.Object"/>
                         <Column editable="true" title="Address" type="java.lang.Object"/>
@@ -475,7 +482,6 @@
                         <Column editable="true" title="Mobile" type="java.lang.Object"/>
                         <Column editable="true" title="Email" type="java.lang.Object"/>
                         <Column editable="true" title="Password" type="java.lang.Object"/>
-                        <Column editable="true" title="Level" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

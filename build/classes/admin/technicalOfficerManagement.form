@@ -58,7 +58,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="whitePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,33 +87,37 @@
                                           <Component id="lnameLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="dobField" alignment="0" pref="241" max="32767" attributes="0"/>
-                                          <Component id="addressField" alignment="0" pref="241" max="32767" attributes="0"/>
-                                          <Component id="fnameField" alignment="0" pref="241" max="32767" attributes="0"/>
-                                          <Component id="lnameField" alignment="0" pref="241" max="32767" attributes="0"/>
-                                          <Component id="userIDField" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="mobileLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  <Component id="genderLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  <Component id="emailLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="addressField" linkSize="2" alignment="0" pref="241" max="32767" attributes="0"/>
+                                                  <Component id="fnameField" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lnameField" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="userIDField" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="genderField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                                  <Component id="emailField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                                  <Component id="mobileField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="mobileLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                          <Component id="genderLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                          <Component id="emailLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="emailField" linkSize="4" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                          <Component id="mobileField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                                          <Component id="genderField" linkSize="4" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="passwordLabel" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="passwordField" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="passwordLabel" min="-2" pref="145" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="passwordField" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="dobField" linkSize="2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jScrollPane1" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
@@ -144,19 +148,16 @@
                       <Component id="closeButton" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="tomanagementHeading" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Component id="genderLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="genderField" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="genderLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="genderField" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="emailField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="emailField" linkSize="5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="emailLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -172,6 +173,7 @@
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="userIDLabel" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="userIDField" min="-2" pref="27" max="-2" attributes="0"/>
@@ -188,15 +190,15 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="addressField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="addressField" linkSize="3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="addressLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dobField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="dobLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dobLabel" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="dobField" linkSize="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -287,8 +289,6 @@
                 <Property name="text" type="java.lang.String" value="DOB :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="dobField">
-            </Component>
             <Component class="javax.swing.JLabel" name="genderLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -299,8 +299,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gender :"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="genderField">
             </Component>
             <Component class="javax.swing.JLabel" name="emailLabel">
               <Properties>
@@ -360,6 +358,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newUserButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editUserButton">
               <Properties>
@@ -436,10 +437,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="toTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="9" rowCount="4">
+                      <Table columnCount="9" rowCount="0">
                         <Column editable="true" title="UserID" type="java.lang.Object"/>
                         <Column editable="true" title="Fname" type="java.lang.Object"/>
                         <Column editable="true" title="Lname" type="java.lang.Object"/>
@@ -507,6 +508,26 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="com.toedter.calendar.JDateChooser" name="dobField">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;YYYY-MM-DD&quot;" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="genderField">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Male"/>
+                    <StringItem index="1" value="Female"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
