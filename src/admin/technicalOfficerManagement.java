@@ -18,6 +18,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
     
     public technicalOfficerManagement() {
         initComponents();
+        displayData();
     }
 
     /**
@@ -92,11 +93,11 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
 
         emailLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         emailLabel.setForeground(new java.awt.Color(0, 51, 102));
-        emailLabel.setText("Email :");
+        emailLabel.setText("Mobile :");
 
         mobileLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         mobileLabel.setForeground(new java.awt.Color(0, 51, 102));
-        mobileLabel.setText("Mobile :");
+        mobileLabel.setText("Email :");
 
         passwordLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(0, 51, 102));
@@ -136,6 +137,11 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         resetUserButton.setForeground(new java.awt.Color(204, 204, 204));
         resetUserButton.setText("Reset");
         resetUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resetUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetUserButtonActionPerformed(evt);
+            }
+        });
 
         closeButton.setBackground(new java.awt.Color(0, 51, 102));
         closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
@@ -350,8 +356,8 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                     add.setString(4,addressField.getText());
                     add.setString(5,dobField.getDateFormatString());
                     add.setString(6, (String) genderField.getSelectedItem());
-                    add.setString(8,emailField.getText());
-                    add.setString(7,mobileField.getText());                 
+                    add.setString(7,emailField.getText());
+                    add.setString(8,mobileField.getText());                 
                     add.setString(9,passwordField.getText());
                     
                     
@@ -367,8 +373,8 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                     add2.setString(4,addressField.getText());
                     add2.setString(5,dobField.getDateFormatString());
                     add2.setString(6, (String) genderField.getSelectedItem());
-                    add2.setString(8,emailField.getText());
-                    add2.setString(7,mobileField.getText());   
+                    add2.setString(7,emailField.getText());
+                    add2.setString(8,mobileField.getText());   
                     add2.setString(9,passwordField.getText());
                     
                     
@@ -394,6 +400,19 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                 
        }   
     }//GEN-LAST:event_newUserButtonActionPerformed
+
+    private void resetUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetUserButtonActionPerformed
+        userIDField.setText("");    
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        mobileField.setText("");
+        emailField.setText("");
+        passwordField.setText("");
+            
+    }//GEN-LAST:event_resetUserButtonActionPerformed
     
     public void displayData(){ 
         try {
@@ -409,13 +428,13 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                     //Getting data into String Variables from table until End of Table data
                     while(result.next()){
                         String userid=result.getString("TOID");
-                        String fname=result.getString("fName");
-                        String lname=result.getString("lName");
+                        String fname=result.getString("fname");
+                        String lname=result.getString("lname");
                         String address=result.getString("address");
                         String dob=result.getString("dob");
                         String gender=result.getString("gender");
-                        String email=result.getString("email");
                         String mobile=result.getString("mobile");
+                        String email=result.getString("email");
                         String password=result.getString("password");
                         
                         

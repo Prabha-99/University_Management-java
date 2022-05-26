@@ -114,6 +114,11 @@ public class adminManagement extends javax.swing.JFrame {
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
         editUserButton.setText("Edit");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editUserButtonActionPerformed(evt);
+            }
+        });
 
         deleteUserButton.setBackground(new java.awt.Color(0, 51, 102));
         deleteUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -509,6 +514,22 @@ public class adminManagement extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_deleteUserButtonActionPerformed
+
+    private void editUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserButtonActionPerformed
+        DefaultTableModel model=(DefaultTableModel)adminsTable.getModel();
+        if(adminsTable.getSelectedRowCount()==1){
+            
+            String id=userIDField.getText();
+            String fname=fnameField.getText();
+            String lname=lnameField.getText();
+            String address=addressField.getText();
+            String dob=dobField.getDateFormatString();
+            String gender= (String) genderField.getSelectedItem();
+            String mobile=mobileField.getText();
+            String email=emailField.getText();
+            String password=passwordField.getText(); 
+        }
+    }//GEN-LAST:event_editUserButtonActionPerformed
 
     
     
