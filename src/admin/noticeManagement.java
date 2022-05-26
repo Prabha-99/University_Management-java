@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package admin;
 
-/**
- *
- * @author Anonymous
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 public class noticeManagement extends javax.swing.JFrame {
 
     /**
@@ -15,6 +20,7 @@ public class noticeManagement extends javax.swing.JFrame {
      */
     public noticeManagement() {
         initComponents();
+        displayData();
     }
 
     /**
@@ -39,8 +45,8 @@ public class noticeManagement extends javax.swing.JFrame {
         deleteCourseButton7 = new javax.swing.JButton();
         resetCourseButton7 = new javax.swing.JButton();
         closeButton7 = new javax.swing.JButton();
-        studentsTable7 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        NT = new javax.swing.JScrollPane();
+        noticeTable = new javax.swing.JTable();
         noticeLabel = new javax.swing.JLabel();
         dateField = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -71,6 +77,11 @@ public class noticeManagement extends javax.swing.JFrame {
         newCourseButton7.setForeground(new java.awt.Color(204, 204, 204));
         newCourseButton7.setText("New");
         newCourseButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newCourseButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCourseButton7ActionPerformed(evt);
+            }
+        });
 
         editCourseButton7.setBackground(new java.awt.Color(0, 51, 102));
         editCourseButton7.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -89,6 +100,11 @@ public class noticeManagement extends javax.swing.JFrame {
         resetCourseButton7.setForeground(new java.awt.Color(204, 204, 204));
         resetCourseButton7.setText("Reset");
         resetCourseButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resetCourseButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetCourseButton7ActionPerformed(evt);
+            }
+        });
 
         closeButton7.setBackground(new java.awt.Color(0, 51, 102));
         closeButton7.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
@@ -100,7 +116,7 @@ public class noticeManagement extends javax.swing.JFrame {
             }
         });
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        noticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -108,8 +124,8 @@ public class noticeManagement extends javax.swing.JFrame {
                 "NoticeID", "Date", "Title", "Notice"
             }
         ));
-        jTable8.setRowHeight(20);
-        studentsTable7.setViewportView(jTable8);
+        noticeTable.setRowHeight(20);
+        NT.setViewportView(noticeTable);
 
         noticeLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         noticeLabel.setForeground(new java.awt.Color(0, 51, 102));
@@ -134,7 +150,7 @@ public class noticeManagement extends javax.swing.JFrame {
                 .addGroup(whitePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanel8Layout.createSequentialGroup()
                         .addContainerGap(59, Short.MAX_VALUE)
-                        .addComponent(studentsTable7, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(NT, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(whitePanel8Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(whitePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,11 +161,8 @@ public class noticeManagement extends javax.swing.JFrame {
                                     .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26)
                                 .addGroup(whitePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(whitePanel8Layout.createSequentialGroup()
-                                        .addGroup(whitePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(whitePanel8Layout.createSequentialGroup()
                                         .addComponent(noticeIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -205,7 +218,7 @@ public class noticeManagement extends javax.swing.JFrame {
                     .addComponent(resetCourseButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newCourseButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addComponent(studentsTable7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NT, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
 
@@ -240,6 +253,7 @@ public class noticeManagement extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButton7MouseClicked
@@ -247,9 +261,87 @@ public class noticeManagement extends javax.swing.JFrame {
         new adminDashboard().setVisible(true);
     }//GEN-LAST:event_closeButton7MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void newCourseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCourseButton7ActionPerformed
+        //Adduser Fucntion
+            if(noticeIDField.getText().isEmpty() ||   titleField.getText().isEmpty() ||    noticeField.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                    if(conn!=null){    //Checking the connection
+                        System.out.println("Connected");
+                    }
+                                                          
+                    //Inserting Data into (course) Table
+                    PreparedStatement add= conn.prepareStatement("INSERT INTO notice VALUES(?,?,?,?)");  // Inserting into Users Table
+                    
+                    add.setString(1,noticeIDField.getText());
+                    add.setString(2,dateField.getDateFormatString());
+                    add.setString(3,titleField.getText());
+                    add.setString(4,noticeField.getText());
+                    
+                    
+                    int row=add.executeUpdate();// Executing the Insert Query
+                    JOptionPane.showMessageDialog(this,"New Notice Added Successfully..."); //Success message
+                    
+                    
+                    
+                    
+                    //Clearing the form for next Entry.
+                    noticeIDField.setText("");
+                    dateField.setDateFormatString("");
+                    titleField.setText("");
+                    noticeField.setText("");
+                    
+                    
+                        
+                    
+            } catch (SQLException ex) {
+                Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+                
+       }   
+    }//GEN-LAST:event_newCourseButton7ActionPerformed
+
+    private void resetCourseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetCourseButton7ActionPerformed
+        noticeIDField.setText("");
+        dateField.setDateFormatString("");
+        titleField.setText("");
+        noticeField.setText("");
+    }//GEN-LAST:event_resetCourseButton7ActionPerformed
+    
+    public void displayData(){ 
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            
+                    //Retrieveing DB table data into the Jtable
+                   
+                    Statement st=conn.createStatement();
+                    String sql="SELECT * FROM notice";       //Query to Retrive data from DB
+                    ResultSet result=st.executeQuery(sql);  // Executing the Query
+                    
+                                       
+                    //Getting data into String Variables from table until End of Table data
+                    while(result.next()){
+                        String noticeid=result.getString("no");
+                        String date=result.getString("date");
+                        String title=result.getString("title");
+                        String notice=result.getString("notice");
+                        
+                        
+                        //String Array for Store data into Jtabel
+                        String intoJ[]={noticeid,date,title,notice};
+                        DefaultTableModel model=(DefaultTableModel)noticeTable.getModel(); //Allows to "insert" a row at a specified location in the model
+                        
+                        model.addRow(intoJ);
+                        
+                        
+                    }
+                              
+                    } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -283,6 +375,7 @@ public class noticeManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane NT;
     private javax.swing.JButton closeButton7;
     private javax.swing.JLabel coursemanagementHeading7;
     private com.toedter.calendar.JDateChooser dateField;
@@ -291,14 +384,13 @@ public class noticeManagement extends javax.swing.JFrame {
     private javax.swing.JButton editCourseButton7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable8;
     private javax.swing.JButton newCourseButton7;
     private javax.swing.JTextArea noticeField;
     private javax.swing.JTextField noticeIDField;
     private javax.swing.JLabel noticeIDLabel;
     private javax.swing.JLabel noticeLabel;
+    private javax.swing.JTable noticeTable;
     private javax.swing.JButton resetCourseButton7;
-    private javax.swing.JScrollPane studentsTable7;
     private javax.swing.JTextField titleField;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel whitePanel8;

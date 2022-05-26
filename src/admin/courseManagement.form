@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -38,16 +38,15 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="64" max="32767" attributes="0"/>
                   <Component id="whitePanel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -56,7 +55,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="whitePanel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -73,38 +72,41 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="CT" min="-2" pref="986" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="depIDLabel7" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="courseIDLabel7" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Component id="courseNameLabel7" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="departmentLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="courseIDLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="courseLabel" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="depIDField7" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="courseNameField7" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
-                                          <Component id="courseIDField7" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="courseField" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="courseIDField" linkSize="3" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                          <Component id="departmentField" linkSize="3" min="-2" pref="91" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="studentsTable7" alignment="0" min="-2" pref="986" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                      <Component id="newCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="editCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="deleteCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="resetCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="coursemanagementHeading7" alignment="0" min="-2" pref="917" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                              <Component id="newCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="editCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="deleteCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="resetCourseButton7" min="-2" pref="92" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -114,31 +116,31 @@
                       <Component id="closeButton7" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Component id="coursemanagementHeading7" min="-2" pref="58" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="courseIDLabel7" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="courseIDField7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="courseIDLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="courseIDField" linkSize="4" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="depIDField7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="depIDLabel7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="departmentLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="departmentField" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="courseNameLabel7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="courseNameField7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="courseLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="courseField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace pref="75" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="editCourseButton7" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="deleteCourseButton7" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="resetCourseButton7" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="newCourseButton7" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="studentsTable7" pref="119" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="CT" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -155,7 +157,7 @@
                 <Property name="text" type="java.lang.String" value="Manage Courses"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="courseIDLabel7">
+            <Component class="javax.swing.JLabel" name="courseIDLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -166,9 +168,9 @@
                 <Property name="text" type="java.lang.String" value="CourseID :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="courseIDField7">
+            <Component class="javax.swing.JTextField" name="courseIDField">
             </Component>
-            <Component class="javax.swing.JLabel" name="depIDLabel7">
+            <Component class="javax.swing.JLabel" name="departmentLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -179,9 +181,7 @@
                 <Property name="text" type="java.lang.String" value="Department :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="depIDField7">
-            </Component>
-            <Component class="javax.swing.JLabel" name="courseNameLabel7">
+            <Component class="javax.swing.JLabel" name="courseLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Fax" size="14" style="1"/>
@@ -192,7 +192,7 @@
                 <Property name="text" type="java.lang.String" value="Course :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="courseNameField7">
+            <Component class="javax.swing.JTextField" name="courseField">
             </Component>
             <Component class="javax.swing.JButton" name="newCourseButton7">
               <Properties>
@@ -210,6 +210,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newCourseButton7ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editCourseButton7">
               <Properties>
@@ -261,6 +264,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetCourseButton7ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="closeButton7">
               <Properties>
@@ -279,14 +285,14 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeButton7MouseClicked"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="studentsTable7">
+            <Container class="javax.swing.JScrollPane" name="CT">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable8">
+                <Component class="javax.swing.JTable" name="courseTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="0">
@@ -322,6 +328,20 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JComboBox" name="departmentField">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="depICT"/>
+                    <StringItem index="1" value="depET"/>
+                    <StringItem index="2" value="depBST"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

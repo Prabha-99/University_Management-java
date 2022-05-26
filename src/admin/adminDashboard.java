@@ -93,11 +93,21 @@ public class adminDashboard extends javax.swing.JFrame {
         newCourse.setBorderPainted(false);
         newCourse.setContentAreaFilled(false);
         newCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCourseActionPerformed(evt);
+            }
+        });
 
         newNotice.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Images\\notice1.png")); // NOI18N
         newNotice.setBorderPainted(false);
         newNotice.setContentAreaFilled(false);
         newNotice.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newNotice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newNoticeActionPerformed(evt);
+            }
+        });
 
         newTT.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Images\\time1.png")); // NOI18N
         newTT.setBorderPainted(false);
@@ -298,6 +308,16 @@ public class adminDashboard extends javax.swing.JFrame {
     private void userDetailsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userDetailsTableMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_userDetailsTableMouseClicked
+
+    private void newCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCourseActionPerformed
+        dispose();         //Closing the Dashboard
+        new courseManagement().setVisible(true);
+    }//GEN-LAST:event_newCourseActionPerformed
+
+    private void newNoticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newNoticeActionPerformed
+        dispose();         //Closing the Dashboard
+        new noticeManagement().setVisible(true);
+    }//GEN-LAST:event_newNoticeActionPerformed
     
     
     
