@@ -1,13 +1,22 @@
 package admin;
 import java.awt.HeadlessException;
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class loginForm extends javax.swing.JFrame {
+    
 
     public loginForm() {
         initComponents();
+        
+        
     }
 
     /**
@@ -114,7 +123,57 @@ public class loginForm extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(555, 397));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+//        public void displayuser(){ 
+//        
+//        adminDashboard dash = new adminDashboard();
+//        
+//        
+//        try {
+//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+//            
+//                    //Retrieveing DB table data into the Jtable
+//                    String username=nameField.getText();
+//                    Statement st=conn.createStatement();
+//                    String sql="SELECT * FROM user WHERE user_id='"+username+"'";       //Query to Retrive data from DB
+//                    ResultSet result=st.executeQuery(sql);  // Executing the Query
+//                    
+//                    
+//                                       
+//                    //Getting data into String Variables from table until End of Table data
+//                    while(result.next()){
+//                        String userid=result.getString("AID");
+//                        String fname=result.getString("fName");
+//                        String lname=result.getString("lName");                       
+//                        String mobile=result.getString("mobile");
+//                        String email=result.getString("email");
+//                        
+//                        
+//                        //String Array for Store data into Jtabel
+//                        String intoJ[]={userid,fname,lname,mobile,email};
+//                        DefaultTableModel model=(DefaultTableModel)userDetailsTable.getModel(); //Allows to "insert" a row at a specified location in the model
+//                        
+//                        model.addRow(intoJ);
+//                        
+//                        
+//                    }
+//                              
+//                    } catch (SQLException ex) {
+//            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+//        }        
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         //Login logic
         if(nameField.getText().isEmpty() && passwordField.getText().isEmpty()){
@@ -128,9 +187,10 @@ public class loginForm extends javax.swing.JFrame {
             //System.out.println("Connected");
             //}
                 //Getting Username & Password
-                String username=nameField.getText();
+                String username=nameField.getText();                
                 String password=passwordField.getText() ;
                 Statement stm=conn.createStatement();
+                
                 //Mysql Query
                 String sql="SELECT * FROM user WHERE user_id='"+username+"' AND password='"+password+"'";
 

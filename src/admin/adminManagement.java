@@ -39,7 +39,7 @@ public class adminManagement extends javax.swing.JFrame {
         editUserButton = new javax.swing.JButton();
         deleteUserButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        SP = new javax.swing.JScrollPane();
         adminsTable = new javax.swing.JTable();
         closeButton = new javax.swing.JButton();
         lnameLabel = new javax.swing.JLabel();
@@ -147,7 +147,7 @@ public class adminManagement extends javax.swing.JFrame {
                 "UserID", "fname", "lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
             }
         ));
-        jScrollPane1.setViewportView(adminsTable);
+        SP.setViewportView(adminsTable);
 
         closeButton.setBackground(new java.awt.Color(0, 51, 102));
         closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -237,7 +237,7 @@ public class adminManagement extends javax.swing.JFrame {
                 .addComponent(closeButton))
             .addGroup(whitePanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1069, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SP, javax.swing.GroupLayout.PREFERRED_SIZE, 1069, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -299,7 +299,7 @@ public class adminManagement extends javax.swing.JFrame {
                     .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SP, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
 
@@ -552,6 +552,7 @@ public class adminManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane SP;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel adminmanagementHeading;
@@ -568,7 +569,6 @@ public class adminManagement extends javax.swing.JFrame {
     private javax.swing.JLabel fnamelabel;
     private javax.swing.JComboBox<String> genderField;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lnameField;
     private javax.swing.JLabel lnameLabel;
     private javax.swing.JTextField mobileField;
