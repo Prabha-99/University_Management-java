@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package admin;
 
 import java.sql.Connection;
@@ -15,10 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Anonymous
- */
+
 public class studentManagement extends javax.swing.JFrame {
 
     /**
@@ -26,6 +20,7 @@ public class studentManagement extends javax.swing.JFrame {
      */
     public studentManagement() {
         initComponents();
+        displayData();
     }
 
     /**
@@ -380,18 +375,18 @@ public class studentManagement extends javax.swing.JFrame {
                     while(result.next()){
                         String userid=result.getString("SID");
                         String stddepartment=result.getString("dep_id");
-                        String fname=result.getString("fName");
-                        String lname=result.getString("lName");
+                        String fname=result.getString("fname");
+                        String lname=result.getString("lname");
+                        String address=result.getString("address");
                         String dob=result.getString("dob");
-                        String gender=result.getString("gender");
-                        String address=result.getString("address");               
+                        String gender=result.getString("gender");               
                         String email=result.getString("email");
                         String mobile=result.getString("mobile");                                           
                         String password=result.getString("password");
                         
                         
                         //String Array for Store data into Jtabel
-                        String intoJ[]={userid,stddepartment,fname,lname,dob,gender,address,email,mobile,password};
+                        String intoJ[]={userid,stddepartment,fname,lname,address,dob,gender,email,mobile,password};
                         DefaultTableModel model=(DefaultTableModel)studentTable.getModel(); //Allows to "insert" a row at a specified location in the model
                         
                         model.addRow(intoJ);
@@ -417,18 +412,17 @@ public class studentManagement extends javax.swing.JFrame {
                     }
                                                           
                     //Inserting Data into (users) Table
-                    PreparedStatement add= conn.prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)");  // Inserting into Users Table
+                    PreparedStatement add= conn.prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?)");  // Inserting into Users Table
                     
                     add.setString(1,userIDField.getText());
-                    add.setString(2, (String) studentDepartmentField.getSelectedItem());
-                    add.setString(3,fnameField.getText());
-                    add.setString(4,lnameField.getText());
-                    add.setString(6,dobField.getDateFormatString());
-                    add.setString(7, (String) genderField.getSelectedItem());
-                    add.setString(5,addressField.getText());    
-                    add.setString(9,emailField.getText());
-                    add.setString(8,mobileField.getText());                   
-                    add.setString(10,passwordField.getText());
+                    add.setString(2,fnameField.getText());
+                    add.setString(3,lnameField.getText());
+                    add.setString(4,addressField.getText()); 
+                    add.setString(5,dobField.getDateFormatString());
+                    add.setString(6, (String) genderField.getSelectedItem());
+                    add.setString(7,mobileField.getText()); 
+                    add.setString(8,emailField.getText());                 
+                    add.setString(9,passwordField.getText());
                     
                     
                     int row=add.executeUpdate();// Executing the Insert Query
@@ -444,8 +438,8 @@ public class studentManagement extends javax.swing.JFrame {
                     add2.setString(5,addressField.getText());
                     add2.setString(6,dobField.getDateFormatString());
                     add2.setString(7, (String) genderField.getSelectedItem());
-                    add2.setString(9,emailField.getText());
-                    add2.setString(8,mobileField.getText());
+                    add2.setString(8,emailField.getText());
+                    add2.setString(9,mobileField.getText());
                     add2.setString(10,passwordField.getText());
                     
                     
