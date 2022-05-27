@@ -62,6 +62,7 @@ public class studentManagement extends javax.swing.JFrame {
         studentDepartmentField = new javax.swing.JComboBox<>();
         dobField = new com.toedter.calendar.JDateChooser();
         genderField = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +136,11 @@ public class studentManagement extends javax.swing.JFrame {
         deleteUserButton.setForeground(new java.awt.Color(204, 204, 204));
         deleteUserButton.setText("Delete");
         deleteUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteUserButtonActionPerformed(evt);
+            }
+        });
 
         resetUserButton.setBackground(new java.awt.Color(0, 51, 102));
         resetUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -175,10 +181,15 @@ public class studentManagement extends javax.swing.JFrame {
 
         genderField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout whitePanelLayout = new javax.swing.GroupLayout(whitePanel);
         whitePanel.setLayout(whitePanelLayout);
         whitePanelLayout.setHorizontalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton))
             .addGroup(whitePanelLayout.createSequentialGroup()
                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(whitePanelLayout.createSequentialGroup()
@@ -221,12 +232,13 @@ public class studentManagement extends javax.swing.JFrame {
                                     .addGroup(whitePanelLayout.createSequentialGroup()
                                         .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1))
                                 .addGap(42, 42, 42))
                             .addComponent(studentsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(studentmanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(whitePanelLayout.createSequentialGroup()
-                        .addGap(187, 187, 187)
+                        .addGap(129, 129, 129)
                         .addComponent(newUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(editUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,9 +247,6 @@ public class studentManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(resetUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(closeButton))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {studentDepartmentField, userIDField});
@@ -245,6 +254,8 @@ public class studentManagement extends javax.swing.JFrame {
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressField, dobField});
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, genderField});
+
+        whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, passwordLabel});
 
         whitePanelLayout.setVerticalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,13 +299,13 @@ public class studentManagement extends javax.swing.JFrame {
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
+                                .addGap(18, 18, 18)
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(editUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(deleteUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(resetUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(newUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
+                                .addGap(35, 35, 35)
                                 .addComponent(studentsTable, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
                             .addGroup(whitePanelLayout.createSequentialGroup()
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -304,6 +315,8 @@ public class studentManagement extends javax.swing.JFrame {
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(whitePanelLayout.createSequentialGroup()
                         .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,6 +331,8 @@ public class studentManagement extends javax.swing.JFrame {
         whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addressField, dobField});
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emailField, genderField});
+
+        whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, passwordLabel});
 
         javax.swing.GroupLayout bluePanelLayout = new javax.swing.GroupLayout(bluePanel);
         bluePanel.setLayout(bluePanelLayout);
@@ -468,6 +483,31 @@ public class studentManagement extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_newUserButtonActionPerformed
 
+    private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
+               Connection conn;
+        if(userIDField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
+        }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            
+        Statement st=conn.createStatement();
+        
+        String userid=userIDField.getText();
+        String sql1="DELETE FROM students WHERE SID='"+userid+"'";  //Deleting from Admin Table
+        String sql2="DELETE FROM user WHERE user_id='"+userid+"'"; //Deleteing From User Table
+        boolean result1=st.execute(sql1); // Executing the Query
+        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        userIDField.setText("");//Clearing text Field
+        JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+    }//GEN-LAST:event_deleteUserButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -518,6 +558,7 @@ public class studentManagement extends javax.swing.JFrame {
     private javax.swing.JLabel fnamelabel;
     private javax.swing.JComboBox<String> genderField;
     private javax.swing.JLabel genderLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField lnameField;
     private javax.swing.JLabel lnameLabel;
     private javax.swing.JTextField mobileField;

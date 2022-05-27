@@ -62,7 +62,7 @@ public class noticeManagement extends javax.swing.JFrame {
 
         noticeIDLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         noticeIDLabel.setForeground(new java.awt.Color(0, 51, 102));
-        noticeIDLabel.setText("NoticeID :");
+        noticeIDLabel.setText("NoticeNo :");
 
         dateLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         dateLabel.setForeground(new java.awt.Color(0, 51, 102));

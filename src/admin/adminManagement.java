@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 public class adminManagement extends javax.swing.JFrame {
     
     public adminManagement() { //Creates new form adminManagement
+        
         initComponents();  
         displayData(); //Calling displayData() method
     }
@@ -502,9 +503,10 @@ public class adminManagement extends javax.swing.JFrame {
         Statement st=conn.createStatement();
         
         String userid=userIDField.getText();
-        String sql="DELETE FROM * WHERE user_id='"+userid+"'";
-        ResultSet result=st.executeQuery(sql);  // Executing the Query
-        
+        String sql1="DELETE FROM admin WHERE AID='"+userid+"'";  //Deleting from Admin Table
+        String sql2="DELETE FROM user WHERE user_id='"+userid+"'"; //Deleteing From User Table
+        boolean result1=st.execute(sql1); // Executing the Query
+        boolean result2=st.execute(sql2);  // Executing the Query
         
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
@@ -512,11 +514,7 @@ public class adminManagement extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
-       }  
-            
-                    
-                   
-        
+       }    
         
     }//GEN-LAST:event_deleteUserButtonActionPerformed
 

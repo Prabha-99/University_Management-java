@@ -131,6 +131,11 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         deleteUserButton.setForeground(new java.awt.Color(204, 204, 204));
         deleteUserButton.setText("Delete");
         deleteUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteUserButtonActionPerformed(evt);
+            }
+        });
 
         resetUserButton.setBackground(new java.awt.Color(0, 51, 102));
         resetUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -413,6 +418,31 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         passwordField.setText("");
             
     }//GEN-LAST:event_resetUserButtonActionPerformed
+
+    private void deleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserButtonActionPerformed
+                Connection conn;
+        if(userIDField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
+        }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            
+        Statement st=conn.createStatement();
+        
+        String userid=userIDField.getText();
+        String sql1="DELETE FROM tecnical_officer WHERE TOID='"+userid+"'";  //Deleting from Admin Table
+        String sql2="DELETE FROM user WHERE user_id='"+userid+"'"; //Deleteing From User Table
+        boolean result1=st.execute(sql1); // Executing the Query
+        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        userIDField.setText("");//Clearing text Field
+        JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+    }//GEN-LAST:event_deleteUserButtonActionPerformed
     
     public void displayData(){ 
         try {
