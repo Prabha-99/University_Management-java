@@ -28,6 +28,8 @@ public class mainInterface extends javax.swing.JFrame {
         universityLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
 
+        setUndecorated(true);
+
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
         darkBluePanel.setBackground(new java.awt.Color(6, 34, 61));
@@ -128,7 +130,7 @@ public class mainInterface extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(911, 539));
+        setSize(new java.awt.Dimension(895, 500));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

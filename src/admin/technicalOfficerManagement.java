@@ -60,6 +60,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         genderField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         bluePanel.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -125,6 +126,11 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
         editUserButton.setText("Edit");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editUserButtonActionPerformed(evt);
+            }
+        });
 
         deleteUserButton.setBackground(new java.awt.Color(0, 51, 102));
         deleteUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -160,6 +166,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
             }
         });
 
+        toTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         toTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -175,7 +182,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(toTable);
 
-        dobField.setDateFormatString("YYYY-MM-DD");
+        dobField.setDateFormatString("YYYY-MM-dd");
 
         genderField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
@@ -354,7 +361,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
             if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
             }else{
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
@@ -433,7 +440,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
         }else{
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
         Statement st=conn.createStatement();
         
@@ -481,10 +488,87 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         passwordField.setText(tblpassword);
     
     }//GEN-LAST:event_toTableMouseClicked
+
+    private void editUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserButtonActionPerformed
+        DefaultTableModel model=(DefaultTableModel)toTable.getModel();
+        if(toTable.getSelectedRowCount()==1){
+            
+            String id=userIDField.getText();
+            String fname=fnameField.getText();
+            String lname=lnameField.getText();
+            String address=addressField.getText();
+            String dob=dobField.getDateFormatString();
+            String gender= (String) genderField.getSelectedItem();
+            String mobile=mobileField.getText();
+            String email=emailField.getText();
+            String password=passwordField.getText(); 
+           
+            
+            //Setting Updated Value at Row
+            
+            model.setValueAt(id, toTable.getSelectedRow(),0);
+            model.setValueAt(fname, toTable.getSelectedRow(),1);
+            model.setValueAt(lname, toTable.getSelectedRow(),2);
+            model.setValueAt(address, toTable.getSelectedRow(),3);
+            model.setValueAt(dob, toTable.getSelectedRow(),4);
+            model.setValueAt(gender, toTable.getSelectedRow(),5);
+            model.setValueAt(mobile, toTable.getSelectedRow(),6);
+            model.setValueAt(email, toTable.getSelectedRow(),7);
+            model.setValueAt(password, toTable.getSelectedRow(),8);
+            
+        //Updating into Database
+        Connection conn;
+        if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() || genderField.getSelectedItem().equals(evt) ||  mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
+            
+        Statement st=conn.createStatement();
+        
+
+        String sql1=" UPDATE tecnical_officer SET TOID='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE TOID= '"+id+"' "; //Update into TOTable Table
+        String sql2=" UPDATE user SET user_id='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE user_id= '"+id+"' "; //Update into User Table
+        
+            int result=st.executeUpdate(sql1);
+            int result2=st.executeUpdate(sql2);
+//        boolean result1=st.execute(sql1); // Executing the Query
+//        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        //Clearing text Field
+        userIDField.setText("");
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        emailField.setText("");
+        mobileField.setText("");
+        passwordField.setText("");
+        JOptionPane.showMessageDialog(this,"User Updated Successfully...");
+        
+        
+        dispose();
+        new technicalOfficerManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+            
+            
+        }else{
+            if(toTable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(this,"Table is Empty...");
+            }else{
+               JOptionPane.showMessageDialog(this,"Please Select a Single Row.!!!"); 
+            }
+        }
+    }//GEN-LAST:event_editUserButtonActionPerformed
     
     public void displayData(){ 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
                     //Retrieveing DB table data into the Jtable
                    

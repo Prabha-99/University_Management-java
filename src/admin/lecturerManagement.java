@@ -54,6 +54,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         positionField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         bluePanel1.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -119,6 +120,11 @@ public class lecturerManagement extends javax.swing.JFrame {
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
         editUserButton.setText("Edit");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editUserButtonActionPerformed(evt);
+            }
+        });
 
         deleteUserButton.setBackground(new java.awt.Color(0, 51, 102));
         deleteUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -158,6 +164,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         positionLabel.setForeground(new java.awt.Color(0, 51, 102));
         positionLabel.setText("Position :");
 
+        lecturerTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         lecturerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -174,7 +181,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         });
         studentsTable.setViewportView(lecturerTable);
 
-        dobField.setDateFormatString("YYYY-MM-DD");
+        dobField.setDateFormatString("YYYY-MM-dd");
 
         lecturerDepartmentLabe.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         lecturerDepartmentLabe.setForeground(new java.awt.Color(0, 51, 102));
@@ -380,7 +387,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         //Method for retrieve Table data into Jtable
     public void displayData(){ 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
                     //Retrieveing DB table data into the Jtable
                    
@@ -428,7 +435,7 @@ public class lecturerManagement extends javax.swing.JFrame {
             if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
             }else{
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
@@ -512,7 +519,7 @@ public class lecturerManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
         }else{
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
         Statement st=conn.createStatement();
         
@@ -563,6 +570,91 @@ public class lecturerManagement extends javax.swing.JFrame {
         positionField.setSelectedItem(position);
         passwordField.setText(tblpassword);
     }//GEN-LAST:event_lecturerTableMouseClicked
+
+    private void editUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserButtonActionPerformed
+        
+        DefaultTableModel model=(DefaultTableModel)lecturerTable.getModel();
+        if(lecturerTable.getSelectedRowCount()==1){
+            
+             
+           
+            String id=userIDField.getText();
+            String department=(String) lectureDepartmentField.getSelectedItem();
+            String fname=fnameField.getText();
+            String lname=lnameField.getText();
+            String address=addressField.getText();
+            String dob=dobField.getDateFormatString();
+            String gender=(String) genderField.getSelectedItem();
+            String mobile=mobileField.getText();
+            String email=emailField.getText();
+            String position=(String) positionField.getSelectedItem();
+            String password=passwordField.getText();
+            
+            //Setting Updated Value at Row
+            
+            model.setValueAt(id, lecturerTable.getSelectedRow(),0);
+            model.setValueAt(department, lecturerTable.getSelectedRow(),1);
+            model.setValueAt(fname, lecturerTable.getSelectedRow(),2);
+            model.setValueAt(lname, lecturerTable.getSelectedRow(),3);
+            model.setValueAt(address, lecturerTable.getSelectedRow(),4);
+            model.setValueAt(dob, lecturerTable.getSelectedRow(),5);
+            model.setValueAt(gender, lecturerTable.getSelectedRow(),6);
+            model.setValueAt(mobile, lecturerTable.getSelectedRow(),7);
+            model.setValueAt(email, lecturerTable.getSelectedRow(),8);
+            model.setValueAt(position, lecturerTable.getSelectedRow(),9);
+            model.setValueAt(password, lecturerTable.getSelectedRow(),10);
+            
+        //Updating into Database
+        Connection conn;
+        if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
+            
+        Statement st=conn.createStatement();
+        
+
+        String sql1=" UPDATE lecturer SET lec_id='"+userIDField.getText()+"' , lec_dept_id='"+lectureDepartmentField.getSelectedItem()+"', fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,address='"+addressField.getText()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' , position='"+positionField.getSelectedItem()+"' ,password='"+passwordField.getText()+"' WHERE lec_id= '"+id+"' "; //Update into Lecturer Table
+        String sql2=" UPDATE user SET user_id='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE user_id= '"+id+"' "; //Update into User Table
+        
+            int result=st.executeUpdate(sql1);
+            int result2=st.executeUpdate(sql2);
+//        boolean result1=st.execute(sql1); // Executing the Query
+//        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        //Clearing text Field
+        userIDField.setText("");
+        lectureDepartmentField.setSelectedItem("");
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        mobileField.setText("");
+        emailField.setText("");
+        passwordField.setText("");
+        positionField.setSelectedItem("");
+        JOptionPane.showMessageDialog(this,"User Updated Successfully...");
+        
+        
+        dispose();
+        new lecturerManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+            
+            
+        }else{
+            if(lecturerTable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(this,"Table is Empty...");
+            }else{
+               JOptionPane.showMessageDialog(this,"Please Select a Single Row.!!!"); 
+            }
+        }
+    }//GEN-LAST:event_editUserButtonActionPerformed
 
     /**
      * @param args the command line arguments

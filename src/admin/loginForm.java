@@ -182,7 +182,7 @@ public class loginForm extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");  //Opening the mysql Connection
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss?useSSL=false","root","")) {
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis?useSSL=false","root","")) {
             //if(conn!=null){    //Checking the connection
             //System.out.println("Connected");
             //}
@@ -207,14 +207,14 @@ public class loginForm extends javax.swing.JFrame {
                         dispose(); // Closing the Login
                         lecture.lectureDashboard dash=new lecture.lectureDashboard();
                         dash.show();
-                    }else if(nameField.getText().startsWith("S")) {
+                    }else if(nameField.getText().startsWith("tg")) {
                         dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
+                        Student.SDashboard dash=new Student.SDashboard();
                         dash.show();
                     }else if(nameField.getText().startsWith("TO")){
                         dispose(); // Closing the Login
-                        otherDashboard dash=new otherDashboard();
-                        dash.show();
+//                        otherDashboard dash=new otherDashboard();
+//                        dash.show();
                     }else{
                         JOptionPane.showMessageDialog(this,"Unauthorized User...!!!");
                     }

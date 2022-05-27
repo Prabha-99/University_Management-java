@@ -53,6 +53,7 @@ public class noticeManagement extends javax.swing.JFrame {
         noticeField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -88,12 +89,22 @@ public class noticeManagement extends javax.swing.JFrame {
         editCourseButton7.setForeground(new java.awt.Color(204, 204, 204));
         editCourseButton7.setText("Edit");
         editCourseButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editCourseButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCourseButton7ActionPerformed(evt);
+            }
+        });
 
         deleteCourseButton7.setBackground(new java.awt.Color(0, 51, 102));
         deleteCourseButton7.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         deleteCourseButton7.setForeground(new java.awt.Color(204, 204, 204));
         deleteCourseButton7.setText("Delete");
         deleteCourseButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteCourseButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCourseButton7ActionPerformed(evt);
+            }
+        });
 
         resetCourseButton7.setBackground(new java.awt.Color(0, 51, 102));
         resetCourseButton7.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -110,12 +121,15 @@ public class noticeManagement extends javax.swing.JFrame {
         closeButton7.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         closeButton7.setForeground(new java.awt.Color(255, 255, 255));
         closeButton7.setText("X");
+        closeButton7.setBorderPainted(false);
+        closeButton7.setFocusPainted(false);
         closeButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButton7MouseClicked(evt);
             }
         });
 
+        noticeTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         noticeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -125,13 +139,18 @@ public class noticeManagement extends javax.swing.JFrame {
             }
         ));
         noticeTable.setRowHeight(20);
+        noticeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                noticeTableMouseClicked(evt);
+            }
+        });
         NT.setViewportView(noticeTable);
 
         noticeLabel.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         noticeLabel.setForeground(new java.awt.Color(0, 51, 102));
         noticeLabel.setText("Notice :");
 
-        dateField.setDateFormatString("YYYY-MM-DD");
+        dateField.setDateFormatString("YYYY-MM-dd");
         dateField.setFont(new java.awt.Font("Lucida Fax", 0, 11)); // NOI18N
         dateField.setMinimumSize(new java.awt.Dimension(25, 17));
 
@@ -266,7 +285,7 @@ public class noticeManagement extends javax.swing.JFrame {
             if(noticeIDField.getText().isEmpty() ||   titleField.getText().isEmpty() ||    noticeField.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
             }else{
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
@@ -292,7 +311,8 @@ public class noticeManagement extends javax.swing.JFrame {
                     titleField.setText("");
                     noticeField.setText("");
                     
-                    
+                    dispose();
+                    new noticeManagement().setVisible(true);
                         
                     
             } catch (SQLException ex) {
@@ -308,10 +328,122 @@ public class noticeManagement extends javax.swing.JFrame {
         titleField.setText("");
         noticeField.setText("");
     }//GEN-LAST:event_resetCourseButton7ActionPerformed
+
+    private void deleteCourseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCourseButton7ActionPerformed
+        Connection conn;
+        if(noticeIDField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please Enter the NoticeNo which you need to Delete...!!!");
+        }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
+            
+        Statement st=conn.createStatement();
+        
+        String noticeNo=noticeIDField.getText();
+        String sql1="DELETE FROM notice WHERE no='"+noticeNo+"'";  //Deleting from Admin Table
+        
+        boolean result1=st.execute(sql1); // Executing the Query
+        
+        
+        noticeIDField.setText("");//Clearing text Field
+        JOptionPane.showMessageDialog(this,"Notice Deleted Successfully...");
+        
+        
+        dispose();
+        new noticeManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+    }//GEN-LAST:event_deleteCourseButton7ActionPerformed
+
+    private void noticeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noticeTableMouseClicked
+        //Setting Data into the Text Fields when click on a Row
+        
+        DefaultTableModel model=(DefaultTableModel)noticeTable.getModel();
+        
+        String tblid=model.getValueAt(noticeTable.getSelectedRow(),0).toString();
+        String tbldate=model.getValueAt(noticeTable.getSelectedRow(),1).toString();
+        String title=model.getValueAt(noticeTable.getSelectedRow(),2).toString();
+        String notice=model.getValueAt(noticeTable.getSelectedRow(),3).toString();
+        
+        
+        noticeIDField.setText(tblid);
+        dateField.setDateFormatString(tbldate);
+        titleField.setText(title);
+        noticeField.setText(notice);
+    }//GEN-LAST:event_noticeTableMouseClicked
+
+    private void editCourseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCourseButton7ActionPerformed
+        DefaultTableModel model=(DefaultTableModel)noticeTable.getModel();
+        if(noticeTable.getSelectedRowCount()==1){
+            
+            String id=noticeIDField.getText();
+            String date=dateField.getDateFormatString();
+            String title=titleField.getText();
+            String notice=noticeField.getText();
+             
+           
+            
+            //Setting Updated Value at Row
+            
+            model.setValueAt(id, noticeTable.getSelectedRow(),0);
+            model.setValueAt(date, noticeTable.getSelectedRow(),1);
+            model.setValueAt(title, noticeTable.getSelectedRow(),2);
+            model.setValueAt(notice, noticeTable.getSelectedRow(),3);
+            
+            
+        //Updating into Database
+        Connection conn;
+        if(noticeIDField.getText().isEmpty() || dateField.getDateFormatString().isEmpty() ||  titleField.getText().isEmpty() ||    noticeField.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+            }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
+            
+        Statement st=conn.createStatement();
+        
+
+        String sql1=" UPDATE notice SET no='"+noticeIDField.getText()+"' , date='"+dateField.getDateFormatString()+"' , title='"+titleField.getText()+"' ,notice='"+noticeField.getText()+"' WHERE no='"+id+"'"; //Update into Notice Table
+        
+        
+            int result=st.executeUpdate(sql1);
+            
+//        boolean result1=st.execute(sql1); // Executing the Query
+//        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        //Clearing text Field
+        noticeIDField.setText("");
+        dateField.setDateFormatString("");
+        titleField.setText("");
+        noticeField.setText("");
+        
+        
+        JOptionPane.showMessageDialog(this,"User Updated Successfully...");
+        
+        
+        dispose();
+        new noticeManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+            
+            
+        }else{
+            if(noticeTable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(this,"Table is Empty...");
+            }else{
+               JOptionPane.showMessageDialog(this,"Please Select a Single Row.!!!"); 
+            }
+        }
+    }//GEN-LAST:event_editCourseButton7ActionPerformed
     
     public void displayData(){ 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
                     //Retrieveing DB table data into the Jtable
                    

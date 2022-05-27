@@ -49,6 +49,7 @@ public class adminManagement extends javax.swing.JFrame {
         genderField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         bluePanel.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -182,7 +183,7 @@ public class adminManagement extends javax.swing.JFrame {
         lnameLabel.setForeground(new java.awt.Color(0, 51, 102));
         lnameLabel.setText("Last Name");
 
-        dobField.setDateFormatString("YYYY-MM-DD");
+        dobField.setDateFormatString("YYYY-MM-dd");
         dobField.setFont(new java.awt.Font("Lucida Fax", 0, 11)); // NOI18N
         dobField.setMinimumSize(new java.awt.Dimension(25, 17));
 
@@ -355,7 +356,7 @@ public class adminManagement extends javax.swing.JFrame {
     //Method for retrieve Table data into Jtable
     public void displayData(){ 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
                     //Retrieveing DB table data into the Jtable
                    
@@ -399,7 +400,7 @@ public class adminManagement extends javax.swing.JFrame {
             if(userIDField.getText().isEmpty() ||  fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() || genderField.getSelectedItem().equals(evt) || mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
             }else{
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
@@ -501,7 +502,7 @@ public class adminManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
         }else{
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
         Statement st=conn.createStatement();
         
@@ -552,8 +553,45 @@ public class adminManagement extends javax.swing.JFrame {
             model.setValueAt(email, adminsTable.getSelectedRow(),7);
             model.setValueAt(password, adminsTable.getSelectedRow(),8);
             
-            //Updating into Database
+        //Updating into Database
+        Connection conn;
+        if(userIDField.getText().isEmpty() ||  fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() || genderField.getSelectedItem().equals(evt) || mobileField.getText().isEmpty() || emailField.getText().isEmpty() || passwordField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please Click on the field that you want to Update...!!!");
+        }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
+        Statement st=conn.createStatement();
+        
+
+        String sql1=" UPDATE admin SET AID='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE AID= '"+id+"' "; //Update into Admin Table
+        String sql2=" UPDATE user SET user_id='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE user_id= '"+id+"' "; //Update into User Table
+        
+            int result=st.executeUpdate(sql1);
+            int result2=st.executeUpdate(sql2);
+//        boolean result1=st.execute(sql1); // Executing the Query
+//        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        //Clearing text Field
+        userIDField.setText("");    
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        mobileField.setText("");
+        emailField.setText("");
+        passwordField.setText("");
+        JOptionPane.showMessageDialog(this,"User Updated Successfully...");
+        
+        
+        dispose();
+        new adminManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
             
             
         }else{

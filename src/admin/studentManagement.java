@@ -62,9 +62,9 @@ public class studentManagement extends javax.swing.JFrame {
         studentDepartmentField = new javax.swing.JComboBox<>();
         dobField = new com.toedter.calendar.JDateChooser();
         genderField = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         bluePanel.setBackground(new java.awt.Color(0, 51, 102));
 
@@ -130,6 +130,11 @@ public class studentManagement extends javax.swing.JFrame {
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
         editUserButton.setText("Edit");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editUserButtonActionPerformed(evt);
+            }
+        });
 
         deleteUserButton.setBackground(new java.awt.Color(0, 51, 102));
         deleteUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -147,6 +152,11 @@ public class studentManagement extends javax.swing.JFrame {
         resetUserButton.setForeground(new java.awt.Color(204, 204, 204));
         resetUserButton.setText("Reset");
         resetUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        resetUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetUserButtonActionPerformed(evt);
+            }
+        });
 
         closeButton.setBackground(new java.awt.Color(0, 51, 102));
         closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
@@ -164,6 +174,7 @@ public class studentManagement extends javax.swing.JFrame {
         studentDepartmentLabel.setForeground(new java.awt.Color(0, 51, 102));
         studentDepartmentLabel.setText("StdDepartment :");
 
+        studentTable.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         studentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -182,11 +193,9 @@ public class studentManagement extends javax.swing.JFrame {
 
         studentDepartmentField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "depICT", "depET", "depBST" }));
 
-        dobField.setDateFormatString("YYYY-MM-DD");
+        dobField.setDateFormatString("YYYY-MM-dd");
 
         genderField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-
-        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout whitePanelLayout = new javax.swing.GroupLayout(whitePanel);
         whitePanel.setLayout(whitePanelLayout);
@@ -237,8 +246,7 @@ public class studentManagement extends javax.swing.JFrame {
                                     .addGroup(whitePanelLayout.createSequentialGroup()
                                         .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1))
+                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(42, 42, 42))
                             .addComponent(studentsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(studentmanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -259,8 +267,6 @@ public class studentManagement extends javax.swing.JFrame {
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressField, dobField});
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emailField, genderField});
-
-        whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, passwordLabel});
 
         whitePanelLayout.setVerticalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,8 +326,6 @@ public class studentManagement extends javax.swing.JFrame {
                                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(whitePanelLayout.createSequentialGroup()
                         .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,8 +340,6 @@ public class studentManagement extends javax.swing.JFrame {
         whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addressField, dobField});
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emailField, genderField});
-
-        whitePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, passwordLabel});
 
         javax.swing.GroupLayout bluePanelLayout = new javax.swing.GroupLayout(bluePanel);
         bluePanel.setLayout(bluePanelLayout);
@@ -382,7 +384,7 @@ public class studentManagement extends javax.swing.JFrame {
 
     public void displayData(){ 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
                     //Retrieveing DB table data into the Jtable
                    
@@ -423,10 +425,10 @@ public class studentManagement extends javax.swing.JFrame {
     
     private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
                 //Adduser Fucntion
-            if(userIDField.getText().isEmpty() ||   fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  emailField.getText().isEmpty() || mobileField.getText().isEmpty()  || passwordField.getText().isEmpty()) {
+            if(userIDField.getText().isEmpty() ||  studentDepartmentField.getSelectedItem().equals(evt) || fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  emailField.getText().isEmpty() || mobileField.getText().isEmpty()  || passwordField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
             }else{
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","")){
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","")){
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
@@ -495,7 +497,7 @@ public class studentManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please Enter the UserID which you need to Delete...!!!");
         }else{
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techmiss","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
             
         Statement st=conn.createStatement();
         
@@ -529,8 +531,8 @@ public class studentManagement extends javax.swing.JFrame {
         String tbladdress=model.getValueAt(studentTable.getSelectedRow(),4).toString();
         String tbldob=model.getValueAt(studentTable.getSelectedRow(),5).toString();
         String tblgender=model.getValueAt(studentTable.getSelectedRow(),6).toString();
-        String tblmobile=model.getValueAt(studentTable.getSelectedRow(),7).toString();
-        String tblemail=model.getValueAt(studentTable.getSelectedRow(),8).toString();
+        String tblemail=model.getValueAt(studentTable.getSelectedRow(),7).toString();
+        String tblmobile=model.getValueAt(studentTable.getSelectedRow(),8).toString();
         String tblpassword=model.getValueAt(studentTable.getSelectedRow(),9).toString();
         
         userIDField.setText(tblid);
@@ -540,10 +542,103 @@ public class studentManagement extends javax.swing.JFrame {
         addressField.setText(tbladdress);
         dobField.setDateFormatString(tbldob);
         genderField.setSelectedItem(tblgender);
-        mobileField.setText(tblmobile);
         emailField.setText(tblemail);
+        mobileField.setText(tblmobile);
         passwordField.setText(tblpassword);
     }//GEN-LAST:event_studentTableMouseClicked
+
+    private void editUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserButtonActionPerformed
+        DefaultTableModel model=(DefaultTableModel)studentTable.getModel();
+        if(studentTable.getSelectedRowCount()==1){
+            
+            String id=userIDField.getText();
+            String department=(String) studentDepartmentField.getSelectedItem();
+            String fname=fnameField.getText();
+            String lname=lnameField.getText();
+            String address=addressField.getText();
+            String dob=dobField.getDateFormatString();
+            String gender= (String) genderField.getSelectedItem();
+            String email=emailField.getText();
+            String mobile=mobileField.getText();            
+            String password=passwordField.getText(); 
+           
+            
+            //Setting Updated Value at Row
+            
+            model.setValueAt(id, studentTable.getSelectedRow(),0);
+            model.setValueAt(department, studentTable.getSelectedRow(),1);
+            model.setValueAt(fname, studentTable.getSelectedRow(),2);
+            model.setValueAt(lname, studentTable.getSelectedRow(),3);
+            model.setValueAt(address, studentTable.getSelectedRow(),4);
+            model.setValueAt(dob, studentTable.getSelectedRow(),5);
+            model.setValueAt(gender, studentTable.getSelectedRow(),6);
+            model.setValueAt(email, studentTable.getSelectedRow(),7);
+            model.setValueAt(mobile, studentTable.getSelectedRow(),8);           
+            model.setValueAt(password, studentTable.getSelectedRow(),9);
+            
+        //Updating into Database
+        Connection conn;
+        if(userIDField.getText().isEmpty() ||  studentDepartmentField.getSelectedItem().equals(evt) || fnameField.getText().isEmpty() || lnameField.getText().isEmpty() || addressField.getText().isEmpty() || dobField.getDateFormatString().isEmpty() ||  emailField.getText().isEmpty() || mobileField.getText().isEmpty()  || passwordField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this,"Fill the all Fields...!!!");
+          }else{
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tecmis","root","");
+            
+        Statement st=conn.createStatement();
+        
+
+        String sql1=" UPDATE students SET SID='"+userIDField.getText()+"' , dep_id='"+studentDepartmentField.getSelectedItem()+"' ,fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE SID= '"+id+"' "; //Update into Student Table
+        String sql2=" UPDATE user SET user_id='"+userIDField.getText()+"' , fname='"+fnameField.getText()+"' ,lname='"+lnameField.getText()+"' ,address='"+addressField.getText()+"' ,dob='"+dobField.getDateFormatString()+"' ,gender='"+genderField.getSelectedItem()+"' ,mobile='"+mobileField.getText()+"' ,email='"+emailField.getText()+"' ,password='"+passwordField.getText()+"' WHERE user_id= '"+id+"' "; //Update into User Table
+        
+            int result=st.executeUpdate(sql1);
+            int result2=st.executeUpdate(sql2);
+//        boolean result1=st.execute(sql1); // Executing the Query
+//        boolean result2=st.execute(sql2);  // Executing the Query
+        
+        //Clearing text Field
+        userIDField.setText("");
+        studentDepartmentField.setSelectedItem("");
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        emailField.setText("");
+        mobileField.setText("");              
+        passwordField.setText("");
+        JOptionPane.showMessageDialog(this,"User Updated Successfully...");
+        
+        
+        dispose();
+        new studentManagement().setVisible(true);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       } 
+            
+            
+        }else{
+            if(studentTable.getSelectedRowCount()==0){
+                JOptionPane.showMessageDialog(this,"Table is Empty...");
+            }else{
+               JOptionPane.showMessageDialog(this,"Please Select a Single Row.!!!"); 
+            }
+        }
+    }//GEN-LAST:event_editUserButtonActionPerformed
+
+    private void resetUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetUserButtonActionPerformed
+        userIDField.setText("");
+        studentDepartmentField.setSelectedItem("");
+        fnameField.setText("");
+        lnameField.setText("");
+        addressField.setText("");
+        dobField.setDateFormatString("");
+        genderField.setSelectedItem("");
+        emailField.setText("");
+        mobileField.setText("");              
+        passwordField.setText("");
+    }//GEN-LAST:event_resetUserButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,7 +690,6 @@ public class studentManagement extends javax.swing.JFrame {
     private javax.swing.JLabel fnamelabel;
     private javax.swing.JComboBox<String> genderField;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField lnameField;
     private javax.swing.JLabel lnameLabel;
     private javax.swing.JTextField mobileField;
