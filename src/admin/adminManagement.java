@@ -403,7 +403,9 @@ public class adminManagement extends javax.swing.JFrame {
                     if(conn!=null){    //Checking the connection
                         System.out.println("Connected");
                     }
-                                                          
+                     
+                       
+
                     //Inserting Data into (users) Table
                     PreparedStatement add= conn.prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?)");  // Inserting into Users Table
                     
@@ -446,9 +448,10 @@ public class adminManagement extends javax.swing.JFrame {
                     mobileField.setText("");
                     emailField.setText("");
                     passwordField.setText("");
+                    displayData();
                     
-                        
-                    
+                    dispose();
+                    new adminManagement().setVisible(true);
             } catch (SQLException ex) {
                 Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
             }   
@@ -510,6 +513,10 @@ public class adminManagement extends javax.swing.JFrame {
         
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
+        
+        
+        dispose();
+        new adminManagement().setVisible(true);
         
         } catch (SQLException ex) {
             Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);

@@ -146,6 +146,8 @@ public class lecturerManagement extends javax.swing.JFrame {
         closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
+        closeButton.setBorderPainted(false);
+        closeButton.setFocusPainted(false);
         closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
@@ -165,6 +167,11 @@ public class lecturerManagement extends javax.swing.JFrame {
             }
         ));
         lecturerTable.setRowHeight(20);
+        lecturerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lecturerTableMouseClicked(evt);
+            }
+        });
         studentsTable.setViewportView(lecturerTable);
 
         dobField.setDateFormatString("YYYY-MM-DD");
@@ -474,7 +481,8 @@ public class lecturerManagement extends javax.swing.JFrame {
                     passwordField.setText("");
                     positionField.setSelectedItem("");
                     
-                        
+                    dispose();
+                    new lecturerManagement().setVisible(true);    
                     
             } catch (SQLException ex) {
                 Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
@@ -517,11 +525,44 @@ public class lecturerManagement extends javax.swing.JFrame {
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
         
+        dispose();
+        new lecturerManagement().setVisible(true);
+        
         } catch (SQLException ex) {
             Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
        } 
     }//GEN-LAST:event_deleteUserButtonActionPerformed
+
+    private void lecturerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lecturerTableMouseClicked
+        //Setting Data into the Text Fields when click on a Row
+        
+        DefaultTableModel model=(DefaultTableModel)lecturerTable.getModel();
+        
+        String tblid=model.getValueAt(lecturerTable.getSelectedRow(),0).toString();
+        String department=model.getValueAt(lecturerTable.getSelectedRow(),1).toString();
+        String tblfname=model.getValueAt(lecturerTable.getSelectedRow(),2).toString();
+        String tbllname=model.getValueAt(lecturerTable.getSelectedRow(),3).toString();
+        String tbladdress=model.getValueAt(lecturerTable.getSelectedRow(),4).toString();
+        String tbldob=model.getValueAt(lecturerTable.getSelectedRow(),5).toString();
+        String tblgender=model.getValueAt(lecturerTable.getSelectedRow(),6).toString();
+        String tblmobile=model.getValueAt(lecturerTable.getSelectedRow(),7).toString();
+        String tblemail=model.getValueAt(lecturerTable.getSelectedRow(),8).toString();
+        String position=model.getValueAt(lecturerTable.getSelectedRow(),9).toString();
+        String tblpassword=model.getValueAt(lecturerTable.getSelectedRow(),10).toString();
+        
+        userIDField.setText(tblid);
+        lectureDepartmentField.setSelectedItem(department);
+        fnameField.setText(tblfname);
+        lnameField.setText(tbllname);
+        addressField.setText(tbladdress);
+        dobField.setDateFormatString(tbldob);
+        genderField.setSelectedItem(tblgender);
+        mobileField.setText(tblmobile);
+        emailField.setText(tblemail);
+        positionField.setSelectedItem(position);
+        passwordField.setText(tblpassword);
+    }//GEN-LAST:event_lecturerTableMouseClicked
 
     /**
      * @param args the command line arguments

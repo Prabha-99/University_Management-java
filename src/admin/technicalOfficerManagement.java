@@ -152,6 +152,8 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         closeButton.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
+        closeButton.setBorderPainted(false);
+        closeButton.setFocusPainted(false);
         closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeButtonMouseClicked(evt);
@@ -166,6 +168,11 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                 "UserID", "Fname", "Lname", "Address", "DOB", "Gender", "Mobile", "Email", "Password"
             }
         ));
+        toTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                toTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(toTable);
 
         dobField.setDateFormatString("YYYY-MM-DD");
@@ -176,9 +183,6 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         whitePanel.setLayout(whitePanelLayout);
         whitePanelLayout.setHorizontalGroup(
             whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(closeButton))
             .addGroup(whitePanelLayout.createSequentialGroup()
                 .addGroup(whitePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(whitePanelLayout.createSequentialGroup()
@@ -230,6 +234,9 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(tomanagementHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, whitePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         whitePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressField, dobField});
@@ -397,7 +404,8 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
                     mobileField.setText("");
                     passwordField.setText("");
                     
-                        
+                    dispose();
+                    new technicalOfficerManagement().setVisible(true);   
                     
             } catch (SQLException ex) {
                 Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
@@ -438,11 +446,41 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
         
+        dispose();
+        new technicalOfficerManagement().setVisible(true);
+        
         } catch (SQLException ex) {
             Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
        } 
     }//GEN-LAST:event_deleteUserButtonActionPerformed
+
+    private void toTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toTableMouseClicked
+        //Setting Data into the Text Fields when click on a Row
+        
+        DefaultTableModel model=(DefaultTableModel)toTable.getModel();
+        
+        String tblid=model.getValueAt(toTable.getSelectedRow(),0).toString();
+        String tblfname=model.getValueAt(toTable.getSelectedRow(),1).toString();
+        String tbllname=model.getValueAt(toTable.getSelectedRow(),2).toString();
+        String tbladdress=model.getValueAt(toTable.getSelectedRow(),3).toString();
+        String tbldob=model.getValueAt(toTable.getSelectedRow(),4).toString();
+        String tblgender=model.getValueAt(toTable.getSelectedRow(),5).toString();
+        String tblmobile=model.getValueAt(toTable.getSelectedRow(),6).toString();
+        String tblemail=model.getValueAt(toTable.getSelectedRow(),7).toString();
+        String tblpassword=model.getValueAt(toTable.getSelectedRow(),8).toString();
+        
+        userIDField.setText(tblid);
+        fnameField.setText(tblfname);
+        lnameField.setText(tbllname);
+        addressField.setText(tbladdress);
+        dobField.setDateFormatString(tbldob);
+        genderField.setSelectedItem(tblgender);
+        mobileField.setText(tblmobile);
+        emailField.setText(tblemail);
+        passwordField.setText(tblpassword);
+    
+    }//GEN-LAST:event_toTableMouseClicked
     
     public void displayData(){ 
         try {

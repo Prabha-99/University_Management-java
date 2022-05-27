@@ -173,6 +173,11 @@ public class studentManagement extends javax.swing.JFrame {
             }
         ));
         studentTable.setRowHeight(20);
+        studentTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentTableMouseClicked(evt);
+            }
+        });
         studentsTable.setViewportView(studentTable);
 
         studentDepartmentField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "depICT", "depET", "depBST" }));
@@ -473,7 +478,8 @@ public class studentManagement extends javax.swing.JFrame {
                     mobileField.setText("");              
                     passwordField.setText("");
                     
-                    
+                    dispose();
+                    new studentManagement().setVisible(true);
                         
                     
             } catch (SQLException ex) {
@@ -502,11 +508,42 @@ public class studentManagement extends javax.swing.JFrame {
         userIDField.setText("");//Clearing text Field
         JOptionPane.showMessageDialog(this,"User Deleted Successfully...");
         
+        dispose();
+        new studentManagement().setVisible(true);
+        
         } catch (SQLException ex) {
             Logger.getLogger(adminManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
        } 
     }//GEN-LAST:event_deleteUserButtonActionPerformed
+
+    private void studentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentTableMouseClicked
+        //Setting Data into the Text Fields when click on a Row
+        
+        DefaultTableModel model=(DefaultTableModel)studentTable.getModel();
+        
+        String tblid=model.getValueAt(studentTable.getSelectedRow(),0).toString();
+        String department=model.getValueAt(studentTable.getSelectedRow(),1).toString();
+        String tblfname=model.getValueAt(studentTable.getSelectedRow(),2).toString();
+        String tbllname=model.getValueAt(studentTable.getSelectedRow(),3).toString();
+        String tbladdress=model.getValueAt(studentTable.getSelectedRow(),4).toString();
+        String tbldob=model.getValueAt(studentTable.getSelectedRow(),5).toString();
+        String tblgender=model.getValueAt(studentTable.getSelectedRow(),6).toString();
+        String tblmobile=model.getValueAt(studentTable.getSelectedRow(),7).toString();
+        String tblemail=model.getValueAt(studentTable.getSelectedRow(),8).toString();
+        String tblpassword=model.getValueAt(studentTable.getSelectedRow(),9).toString();
+        
+        userIDField.setText(tblid);
+        studentDepartmentField.setSelectedItem(department);
+        fnameField.setText(tblfname);
+        lnameField.setText(tbllname);
+        addressField.setText(tbladdress);
+        dobField.setDateFormatString(tbldob);
+        genderField.setSelectedItem(tblgender);
+        mobileField.setText(tblmobile);
+        emailField.setText(tblemail);
+        passwordField.setText(tblpassword);
+    }//GEN-LAST:event_studentTableMouseClicked
 
     /**
      * @param args the command line arguments
