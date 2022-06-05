@@ -11,6 +11,7 @@ import java.util.List;
  * @author ASUS
  */
 public interface lecMarkDAO {
-     public void save(lecMark Student);
+     public void save(lecMark ca);
     public List<lecMark> list();
+    public List<lecMark>list1();
 }

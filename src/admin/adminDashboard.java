@@ -112,6 +112,11 @@ public class adminDashboard extends javax.swing.JFrame {
         newTT.setBorderPainted(false);
         newTT.setContentAreaFilled(false);
         newTT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newTT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newTTActionPerformed(evt);
+            }
+        });
 
         logoutButton.setBackground(new java.awt.Color(51, 51, 51));
         logoutButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
@@ -294,6 +299,11 @@ public class adminDashboard extends javax.swing.JFrame {
         dispose();         //Closing the Dashboard
         new noticeManagement().setVisible(true);
     }//GEN-LAST:event_newNoticeActionPerformed
+
+    private void newTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTTActionPerformed
+        dispose();         //Closing the Dashboard
+        new timeTableManagement().setVisible(true);
+    }//GEN-LAST:event_newTTActionPerformed
     
     
     

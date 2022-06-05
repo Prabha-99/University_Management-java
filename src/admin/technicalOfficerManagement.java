@@ -124,7 +124,7 @@ public class technicalOfficerManagement extends javax.swing.JFrame {
         editUserButton.setBackground(new java.awt.Color(0, 51, 102));
         editUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
-        editUserButton.setText("Edit");
+        editUserButton.setText("Update");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

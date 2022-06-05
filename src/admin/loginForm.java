@@ -203,7 +203,7 @@ public class loginForm extends javax.swing.JFrame {
                         dispose(); // Closing the Login
                         adminDashboard dash=new adminDashboard();
                         dash.show();
-                    } else if(nameField.getText().startsWith("L")) {
+                    } else if(nameField.getText().startsWith("lec")) {
                         dispose(); // Closing the Login
                         lecture.lectureDashboard dash=new lecture.lectureDashboard();
                         dash.show();
@@ -213,8 +213,9 @@ public class loginForm extends javax.swing.JFrame {
                         dash.show();
                     }else if(nameField.getText().startsWith("TO")){
                         dispose(); // Closing the Login
-//                        otherDashboard dash=new otherDashboard();
-//                        dash.show();
+                        TO.ToDashboard dash = new TO.ToDashboard();
+                        dash.show();
+                        
                     }else{
                         JOptionPane.showMessageDialog(this,"Unauthorized User...!!!");
                     }

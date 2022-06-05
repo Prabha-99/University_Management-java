@@ -118,7 +118,7 @@ public class lecturerManagement extends javax.swing.JFrame {
         editUserButton.setBackground(new java.awt.Color(0, 51, 102));
         editUserButton.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         editUserButton.setForeground(new java.awt.Color(204, 204, 204));
-        editUserButton.setText("Edit");
+        editUserButton.setText("Update");
         editUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,10 +401,10 @@ public class lecturerManagement extends javax.swing.JFrame {
                         String userid=result.getString("lec_id");
                         String lecdepartment=result.getString("lec_dept_id");
                         String fname=result.getString("fName");
-                        String lname=result.getString("lName");
-                        String address=result.getString("address");
+                        String lname=result.getString("lName");  
                         String dob=result.getString("dob");
                         String gender=result.getString("gender");
+                        String address=result.getString("address");
                         String mobile=result.getString("mobile");
                         String email=result.getString("email");
                         String position=result.getString("position");

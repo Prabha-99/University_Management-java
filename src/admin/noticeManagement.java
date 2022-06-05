@@ -87,7 +87,7 @@ public class noticeManagement extends javax.swing.JFrame {
         editCourseButton7.setBackground(new java.awt.Color(0, 51, 102));
         editCourseButton7.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         editCourseButton7.setForeground(new java.awt.Color(204, 204, 204));
-        editCourseButton7.setText("Edit");
+        editCourseButton7.setText("Update");
         editCourseButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editCourseButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

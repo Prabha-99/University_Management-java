@@ -59,7 +59,6 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
         did = new javax.swing.JTextField();
         subject = new javax.swing.JTextField();
         coid = new javax.swing.JTextField();
-        update = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         course = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
@@ -88,16 +87,6 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 102));
         jLabel5.setText("Subject");
-
-        update.setBackground(new java.awt.Color(0, 51, 102));
-        update.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
-        update.setForeground(new java.awt.Color(242, 242, 242));
-        update.setText("update");
-        update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
-            }
-        });
 
         course.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,9 +158,7 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)))
+                        .addGap(45, 45, 45)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -184,7 +171,7 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -206,10 +193,8 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(lecid, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(140, 140, 140)
+                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -245,33 +230,6 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-    
-        lecCourse l1=new lecCourse();
-        
-        String dep_id=did.getText();
-        String sub_id=subid.getText();
-        String co_id=coid.getText();
-        String subname=subject.getText();
-        String lecname=lecid.getText();
-        
-     l1.setDep_id(dep_id);
-     l1.setSub_id(sub_id);
-     l1.setCo_id(co_id);
-     l1.setSub_name(subname);
-     l1.setLec_id(lecname);
-      
-      lecCourseDAOimp dao=new  lecCourseDAOimp();
-      dao.update(l1);
-      Load();
-      did.setText("");
-      subid.setText("");
-      coid.setText("");
-      subject.setText("");
-      lecid.setText("");
-       did.requestFocus();
-    }//GEN-LAST:event_updateActionPerformed
 
     String Search;
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
@@ -349,6 +307,5 @@ public class LectureaddCourseMaterial1 extends javax.swing.JFrame {
     private javax.swing.JButton search;
     private javax.swing.JTextField subid;
     private javax.swing.JTextField subject;
-    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
