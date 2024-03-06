@@ -37,7 +37,7 @@ public class mainInterface extends javax.swing.JFrame {
         image.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         image.setForeground(new java.awt.Color(204, 204, 204));
         image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        image.setIcon(new javax.swing.ImageIcon("G:\\Uni Works\\Level 2\\Sem 1\\OOD\\Small Projects\\University_Management-java-\\Other Project Materials\\Faculty.png")); // NOI18N
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lecture/image/homepng.png"))); // NOI18N
 
         welcomeLabel.setFont(new java.awt.Font("Lucida Fax", 1, 26)); // NOI18N
         welcomeLabel.setForeground(new java.awt.Color(204, 204, 204));
@@ -45,7 +45,7 @@ public class mainInterface extends javax.swing.JFrame {
 
         facultyLabel.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         facultyLabel.setForeground(new java.awt.Color(204, 204, 204));
-        facultyLabel.setText("Faculty Management System");
+        facultyLabel.setText("Student Management System");
 
         universityLabel.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         universityLabel.setForeground(new java.awt.Color(204, 204, 204));
@@ -89,7 +89,7 @@ public class mainInterface extends javax.swing.JFrame {
         );
         darkBluePanelLayout.setVerticalGroup(
             darkBluePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(image, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(image, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(darkBluePanelLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(welcomeLabel)
